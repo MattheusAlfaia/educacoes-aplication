@@ -1,0 +1,40 @@
+.navbar-brand img {
+    display: block !important;
+}
+
+.nav-link {
+    color: #50a4b1 !important;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #c11f1f !important;
+    text-decoration: underline;
+}
+
+.icon {
+    padding: 0 0.3rem;
+    font-size: 1.3rem;
+}
+
+.icon:hover {
+    color: rgb(14, 132, 174) !important;
+    transform: scale(1.5) !important;
+    transition: all 0.2s ease-in;
+}
+
+.nav-social {
+    padding: 0 3px;
+}
+
+.banner {
+    width: 100vw;
+    height: 20vh;
+}
+
+@media (max-width: 900px) {
+    .icon {
+        padding: 0 1rem;
+        margin-top: 30px;
+    }
+}
