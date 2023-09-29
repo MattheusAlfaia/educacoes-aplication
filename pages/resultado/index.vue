@@ -1,6 +1,5 @@
 <template>
     <div v-if="!resposta.cursos" class="text-center">
-        <!-- <ResultadosSkeleton /> -->
         <span>Carregando...</span>
     </div>
     <div v-else>
@@ -8,9 +7,9 @@
             <div class="row mb-2">
                 <div class="d-flex justify-content-between">
                     <div class="col-md-4 text-start">
-                        <p class="result">Total Cursos: <span id="resultado-contador">
+                        <p class="result">Resultados: <span id="resultado-contador">
                                 {{ resultadosEncontrados }}
-                            </span><a class="btn btn-sm text-info" @click="limparFiltros">Limpar</a>
+                            </span><a class="btn-limpar" @click="limparFiltros">LIMPAR FILTRO</a>
                         </p>
                     </div>
                     <div class="col-md-8 text-end">
@@ -19,10 +18,10 @@
                                 aria-expanded="false">
                                 <i class="bi bi-filter"></i>
                             </button>
-                            <ul class="dropdown-menu menu-filtro" aria-labelledby="filterDropdown">                            
+                            <ul class="dropdown-menu menu-filtro" aria-labelledby="filterDropdown">
                                 <li v-for="(turno, index) in turnosExistentes" :key="index">
                                     <input type="radio" :id="turno.id" name="turno" :value="turno.nome"
-                                        @change="filtroTurno(turno.nome)" class="fturnos"/>
+                                        @click="filtroTurno(turno.nome)" class="fturnos" />
                                     <label :for="turno.id">{{ turno.nome }}</label>
                                 </li>
                             </ul>
@@ -30,6 +29,39 @@
                     </div>
                 </div>
             </div>
+            <!-- ==================== -->
+            <!-- <div class="row mt-1">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-easel"></i></span>
+                        <select class="form-select" aria-label="Nível de Ensino" v-model="nivelEnsino"
+                            @change="filtroNivelEnsino(nivelEnsino)">
+                            <option value="GRADUAÇÃO" selected>GRADUAÇÃO</option>
+                            <option value="GRADUAÇÃO">PÓS-GRADUAÇÃO</option>
+                            <option v-for="(nivelEnsino, index) in nivelEnsinos" :key="index" :value="nivelEnsino.nome">
+                                {{ nivelEnsino.nome }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt"></i></span>
+                        <input type="text" class="form-control curso" placeholder="Sua Cidade" aria-label="Cidade" value="Manaus-AM"
+                                aria-describedby="basic-addon1" name="curso" />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <form action="/busca/curso/" method="GET">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control curso" placeholder="Curso" aria-label="Curso" value="DIREITO"
+                                aria-describedby="basic-addon1" name="curso" />
+                            <button class="btn btn-outline-secondary" type="submit"><i class="bi bi-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div> -->
+            <!-- ================= -->
             <section class="container">
                 <div class="row">
                     <!-- {{ resposta.ies }} -->
@@ -47,7 +79,11 @@
                 <div class="col-md-12">
                     <!-- {{ paginatedItems }} -->
                     <div class="row">
-                        <div class="custom-card col-md-4 card m-2" v-for="(result, index) in paginatedItems" :key="index">
+                        <div class="custom-card col-md-4 card m-2" v-for="(result, index) in paginatedItems" :key="index"
+                            @click="$router.push({
+                                name: 'curso',
+                                params: { id: result.id }
+                            })">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-5 profile-image">
@@ -96,8 +132,10 @@
                                 </section>
                                 <div class="row mt-2">
                                     <div v-if="result.prazo_inscricao || result.previsao_inicio" class="col-md-12 warnings">
-                                        <p v-if="result.prazo_inscricao">Prazo de inscrição: {{ formatarData(result.prazo_inscricao) }}</p>
-                                        <p v-if="result.previsao_inicio">Previsão de início: {{ formatarData(result.previsao_inicio) }}</p>
+                                        <p v-if="result.prazo_inscricao">Prazo de inscrição: {{
+                                            formatarData(result.prazo_inscricao) }}</p>
+                                        <p v-if="result.previsao_inicio">Previsão de início: {{
+                                            formatarData(result.previsao_inicio) }}</p>
                                     </div>
                                 </div>
                                 <div class="row mt-1">
@@ -127,7 +165,6 @@
 </template>
   
 <script>
-// import NavBar from '../components/NavBar.vue';
 import { defineComponent } from 'vue'
 import { Carousel, Navigation, Slide } from 'vue3-carousel'
 import { cursoStore, pinia } from '@/stores/getCursos';
@@ -135,18 +172,15 @@ import 'vue3-carousel/dist/carousel.css';
 import PaginationComponent from '@/components/Paginacao/PaginationComponent.vue';
 import { usePaginationStore } from '@/stores/paginationStore';
 import FilterModal from '@/components/FilterModal/FilterModal.vue';
-// import ResultadosSkeleton from '@/components/skeleton/ResultadosSkeleton.vue'
 
 export default defineComponent({
     name: 'resultados',
     components: {
-        // NavBar,
         Carousel,
         Slide,
         Navigation,
         PaginationComponent,
         FilterModal,
-        // ResultadosSkeleton
     },
     data: () => ({
         resposta_original: [],
@@ -205,7 +239,7 @@ export default defineComponent({
                 maximumFractionDigits: 2,
             });
         },
-        formatarData(data){
+        formatarData(data) {
             var data = new Date(data);
             var dia = data.getDate();
             if (dia.toString().length == 1)
@@ -218,7 +252,7 @@ export default defineComponent({
         }
     },
     computed: {
-        turnosExistentes(){
+        turnosExistentes() {
             const paginationStore = usePaginationStore();
             return paginationStore.turnosExistentes();
         },
@@ -252,9 +286,6 @@ export default defineComponent({
         var data = myStore.response;
 
         onMounted(async () => {
-            // await myStore.getLogos()
-            // logos.value = myStore.Logos;
-
             await myStore.getCursos(data)
             resposta.value = myStore.resposta;
             JSON.parse(JSON.stringify([resposta]));
@@ -273,247 +304,6 @@ export default defineComponent({
 </script>
   
 <style lang="scss" scoped>
-.menu-filtro {
-    width: 10rem;
-    height: auto;
-    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
-    li {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        
-        // input radio
-        input[type="radio"] {
-            display: none;
-        }
-
-        input[type="radio"]+label {
-            cursor: pointer;
-            height: 2.5rem;
-            width: 100%;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: bold;
-            color: #269bcd;
-            border: 1px solid #269bcd;
-            margin: 0.5rem 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        input[type="radio"]:checked+label {
-            background-color: #269bcd;
-            color: #fff;
-        }
-    }
-}
-
-.carousel_slide {
-    padding: 5px;
-}
-
-.carousel_item {
-    background-color: #fff;
-    border-radius: 50%;
-    padding: 10px;
-    margin: 5px;
-    height: 100px;
-    width: 100px;
-    text-align: center;
-    font-size: 10px;
-    color: #000;
-    font-weight: bold;
-    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
-}
-
-// ================================
-.result {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #50a4b1;
-}
-
-.btn-filtro {
-    background-color: #50a4b1;
-    border: none;
-    color: #fff;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 0.2rem 0.5rem;
-    border-radius: 10px;
-
-    i {
-        font-size: 1.5rem;
-    }
-}
-
-.institution {
-    width: 80px;
-    height: 80px;
-    background-color: #ccc;
-    border: 1px solid #d4d4d4;
-    border-radius: 50%;
-    padding: 0;
-    font-size: 1.5rem;
-    color: #000;
-}
-
-.row {
-    justify-content: center !important;
-}
-
-.custom-card {
-    width: 300px;
-    height: 400px;
-    border: 1px solid #50A4B1;
-
-    &:hover {
-        border: 1px solid #50A4B1;
-        box-shadow: 0 0 11px rgba(33, 33, 33, .2);
-        cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-        height: 420px;
-    }
-
-    .card-body {
-        padding: 0;
-    }
-
-    .city {
-        margin-right: 0.5rem;
-
-        span {
-            color: #50A4B1;
-            font-size: 1rem;
-            font-weight: bold;
-        }
-    }
-
-    .beneficio {
-        margin-right: 0.5rem;
-        color: #FFAE10;
-        font-size: 1rem;
-        font-weight: bold;
-    }
-
-    .profile-image {
-        padding: 10px 0 0 30px;
-
-        img {
-            width: 70px;
-            height: 70px;
-            overflow: hidden;
-            border-radius: 50%;
-            margin: 0 auto;
-            object-fit: cover;
-        }
-    }
-
-    .savings {
-        font-size: 1rem;
-        font-weight: bold;
-        color: #12cf5a;
-    }
-
-    .price {
-        padding: 0 0 0 0.5rem;
-        font-size: 1rem;
-        font-weight: bold;
-        color: #269bcd;
-    }
-
-    .price-before {
-        font-size: 1rem;
-        font-weight: bold;
-        color: #269bcd;
-        text-decoration: line-through;
-        text-decoration-color: #5a5e5c;
-    }
-
-    .institution-name {
-        font-size: 0.8rem;
-        padding: 0.2rem 0 0 0;
-        font-weight: bold;
-        color: #144C78;
-        margin-left: 0.5rem;
-    }
-
-    .btn-set {
-        background-color: #269bcd;
-        color: #fff;
-        border: 1px solid #269bcd;
-        font-size: 1rem;
-        font-weight: bold;
-        padding: 0.5rem 1rem;
-    }
-
-    .btn-noset {
-        background-color: #fff;
-        color: #269bcd;
-        border: 1px solid #269bcd;
-        font-size: 1rem;
-        font-weight: bold;
-        padding: 0.5rem 1.2rem;
-    }
-
-    .warnings p {
-        font-size: 1rem;
-        font-weight: bold;
-        color: #144C78;
-        padding: 0 !important;
-        margin: 0 !important;
-        text-align: center;
-    }
-
-    .infos {
-        font-size: 0.8rem;
-        font-weight: bold;
-        color: #269bcd;
-        padding: 0 !important;
-        margin: 0 !important;
-        text-align: center;
-    }
-
-    .card-promotional {
-        border: 1px solid #50A4B1;
-        padding: 5px;
-        margin: 5px;
-        border-radius: 10px;
-        margin-bottom: 10px;
-    }
-
-    .fixed-bottom-div {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    }
-}
-
-.pagination {
-    margin: 0 !important;
-
-    .page-item a {
-        background: #45a6b5 !important;
-        color: #fff !important;
-
-        :focus {
-            box-shadow: none !important;
-        }
-    }
-}
-
-.active span {
-    background: #005E73 !important;
-    color: #fff !important;
-    border: none;
-
-    :focus {
-        box-shadow: none !important;
-    }
-}</style>
+@import './resultado.scss';
+</style>
   

@@ -8,6 +8,7 @@ export const usePaginationStore = defineStore({
     itemsPerPage: 12,
     totalPages: 0,
     cursoExibido: [],
+    filtroOriginal: [],
     itemFiltrado: undefined,
     cursoOriginal: undefined,
   }),
@@ -20,7 +21,7 @@ export const usePaginationStore = defineStore({
       }
     },
     turnosExistentes(){
-      if(this.cursoExibido){
+      if(this.cursoExibido && this.filtroOriginal.length < 1){
         const turnos = this.cursoOriginal.map((curso) => curso.turno);
         return [...new Set(turnos)].map((turno) => {
           return {
@@ -28,7 +29,15 @@ export const usePaginationStore = defineStore({
             nome: turno,
           };
         });
-      } else {
+      } else if(this.cursoExibido && this.filtroOriginal.length >= 1){
+        const turnos = this.filtroOriginal.map((curso) => curso.turno);
+        return [...new Set(turnos)].map((turno) => {
+          return {
+            id: turno,
+            nome: turno,
+          };
+        });
+      }else {
         return [];
       }
     },
@@ -50,8 +59,10 @@ export const usePaginationStore = defineStore({
       this.currentPages = 1;
       this.itemFiltrado = this.cursoOriginal.filter((curso) => curso.ies_id == ies_id);
       if(this.itemFiltrado.length > 0){
+        this.filtroOriginal = this.itemFiltrado;
         this.cursoExibido = this.itemFiltrado;
       }
+      turnosExistentes();
     },
     limparFiltro(){
       this.currentPages = 1;
@@ -59,13 +70,22 @@ export const usePaginationStore = defineStore({
       if(this.cursoExibido.length === 0){
         this.cursoExibido = this.cursoOriginal;
       }
+      turnosExistentes();
     },
     filtroTurno(opcao){
       this.currentPages = 1;
-      this.itemFiltrado = this.cursoOriginal.filter((curso) => curso.turno == opcao);
-      if(this.itemFiltrado.length > 0){
-        this.cursoExibido = this.itemFiltrado;
+      if(this.filtroOriginal.length > 0){
+        this.itemFiltrado = this.filtroOriginal.filter((curso) => curso.turno == opcao);
+        if(this.itemFiltrado.length > 0){
+          this.cursoExibido = this.itemFiltrado;
+        }
+      }else{
+        this.itemFiltrado = this.cursoOriginal.filter((curso) => curso.turno == opcao);
+        if(this.itemFiltrado.length > 0){
+          this.cursoExibido = this.itemFiltrado;
+        }
       }
+      turnosExistentes();
     }
   },
 });
