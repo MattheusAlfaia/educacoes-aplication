@@ -31,37 +31,7 @@
                 </div>
             </div>
             <!-- ==================== -->
-            <!-- <div class="row mt-1">
-                <form @submit.prevent="pesquisaSubmit">
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-easel"></i></span>
-                            <select class="form-select" aria-label="Nível de Ensino" v-model="nivelEnsino"
-                                @change="filtroNivelEnsino(nivelEnsino)">
-                                <option value="GRADUAÇÃO" selected>GRADUAÇÃO</option>
-                                <option value="GRADUAÇÃO">PÓS-GRADUAÇÃO</option>
-                                <option v-for="(nivelEnsino, index) in nivelEnsinos" :key="index" :value="nivelEnsino.nome">
-                                    {{ nivelEnsino.nome }}
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt"></i></span>
-                            <input type="text" class="form-control curso" placeholder="Sua Cidade" aria-label="Cidade"
-                                value="Manaus-AM" aria-describedby="basic-addon1" name="curso" />
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control curso" placeholder="Curso" aria-label="Curso"
-                                value="DIREITO" aria-describedby="basic-addon1" name="curso" />
-                            <button class="btn btn-outline-secondary" type="submit"><i class="bi bi-search"></i></button>
-                        </div>
-                    </div>
-                </form>
-            </div> -->
+            <FormResultado :dataBusca="dataBusca"/>
             <!-- ================= -->
             <section class="container">
                 <div class="row">
@@ -172,6 +142,7 @@ import 'vue3-carousel/dist/carousel.css';
 import PaginationComponent from '@/components/Paginacao/PaginationComponent.vue';
 import { usePaginationStore } from '@/stores/paginationStore';
 import sloganResultado from '@/components/sloganCarregamento/sloganResultado.vue';
+import FormResultado from '@/components/FormResultado/FormResultado.vue';
 
 export default defineComponent({
     name: 'resultados',
@@ -181,6 +152,7 @@ export default defineComponent({
         Navigation,
         PaginationComponent,
         sloganResultado,
+        FormResultado,
     },
     data: () => ({
         resposta_original: [],
@@ -282,6 +254,7 @@ export default defineComponent({
         const resposta = ref([]);
         const logos = ref([]);
         const paginationStore = usePaginationStore();
+        const dataBusca = ref([]);
 
         var data = myStore.response;
 
@@ -289,6 +262,8 @@ export default defineComponent({
             await myStore.getCursos(data)
             resposta.value = myStore.resposta;
             JSON.parse(JSON.stringify([resposta]));
+
+            dataBusca.value = myStore.pesquisaData;
 
             paginationStore.cursoOriginal = resposta.value.cursos;
             paginationStore.cursoOriginal.sort(() => Math.random() - 0.5);
@@ -298,6 +273,7 @@ export default defineComponent({
         return {
             resposta,
             logos,
+            dataBusca
         };
     },
 });

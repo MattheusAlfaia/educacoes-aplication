@@ -13,6 +13,7 @@ const cursoStore = defineStore({
     areaConhecimento: [],
     Logos: [],
     Turnos: [],
+    pesquisaData: [],
   }),
   actions: {
     async getCursos(data) {
@@ -35,6 +36,7 @@ const cursoStore = defineStore({
           console.error("Erro ao obter os cursos:", error);
         }
       }
+      this.pesquisaData = data;
     },
     async setCursos(data) {
       this.response = data;
