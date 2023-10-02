@@ -260,3 +260,26 @@
         box-shadow: none !important;
     }
 }
+
+.accordion{
+    background-color: #fff;
+    border: 1px solid #50A4B1;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+    :focus{
+        box-shadow: none !important;
+    }
+
+    .accordion-button:not(.collapsed){
+        background-color: #50A4B1;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        padding: 1rem;
+        margin-bottom: 10px;
+        :focus{
+            box-shadow: none !important;
+        }
+    }
+}
