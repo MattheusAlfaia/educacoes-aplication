@@ -6,13 +6,13 @@
         <section class="mt-3 container">
             <div class="row mb-2">
                 <div class="d-flex justify-content-between">
-                    <div class="col-md-4 text-start">
+                    <div class="col-sm-4 col-md-6 text-start">
                         <p class="result">Resultados: <span id="resultado-contador">
                                 {{ resultadosEncontrados }}
                             </span><a class="btn-limpar" @click="limparFiltros">LIMPAR FILTRO</a>
                         </p>
                     </div>
-                    <div class="col-md-8 text-end">
+                    <div class="col-sm-8 col-md-6 text-end">
                         <div class="dropdown">
                             <button class="btn btn-filtro" type="button" id="filterDropdown" data-bs-toggle="dropdown"
                                 aria-expanded="false">
@@ -31,35 +31,35 @@
             </div>
             <!-- ==================== -->
             <!-- <div class="row mt-1">
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-easel"></i></span>
-                        <select class="form-select" aria-label="Nível de Ensino" v-model="nivelEnsino"
-                            @change="filtroNivelEnsino(nivelEnsino)">
-                            <option value="GRADUAÇÃO" selected>GRADUAÇÃO</option>
-                            <option value="GRADUAÇÃO">PÓS-GRADUAÇÃO</option>
-                            <option v-for="(nivelEnsino, index) in nivelEnsinos" :key="index" :value="nivelEnsino.nome">
-                                {{ nivelEnsino.nome }}
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt"></i></span>
-                        <input type="text" class="form-control curso" placeholder="Sua Cidade" aria-label="Cidade" value="Manaus-AM"
-                                aria-describedby="basic-addon1" name="curso" />
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <form action="/busca/curso/" method="GET">
+                <form @submit.prevent="pesquisaSubmit">
+                    <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control curso" placeholder="Curso" aria-label="Curso" value="DIREITO"
-                                aria-describedby="basic-addon1" name="curso" />
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-easel"></i></span>
+                            <select class="form-select" aria-label="Nível de Ensino" v-model="nivelEnsino"
+                                @change="filtroNivelEnsino(nivelEnsino)">
+                                <option value="GRADUAÇÃO" selected>GRADUAÇÃO</option>
+                                <option value="GRADUAÇÃO">PÓS-GRADUAÇÃO</option>
+                                <option v-for="(nivelEnsino, index) in nivelEnsinos" :key="index" :value="nivelEnsino.nome">
+                                    {{ nivelEnsino.nome }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt"></i></span>
+                            <input type="text" class="form-control curso" placeholder="Sua Cidade" aria-label="Cidade"
+                                value="Manaus-AM" aria-describedby="basic-addon1" name="curso" />
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control curso" placeholder="Curso" aria-label="Curso"
+                                value="DIREITO" aria-describedby="basic-addon1" name="curso" />
                             <button class="btn btn-outline-secondary" type="submit"><i class="bi bi-search"></i></button>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div> -->
             <!-- ================= -->
             <section class="container">
@@ -157,7 +157,6 @@
                 </div>
             </section>
         </section>
-        <FilterModal />
         <section class="pagination-pages">
             <PaginationComponent :currentPage="currentPage" :totalPages="totalPages" @setPage="setPage" />
         </section>
@@ -171,7 +170,6 @@ import { cursoStore, pinia } from '@/stores/getCursos';
 import 'vue3-carousel/dist/carousel.css';
 import PaginationComponent from '@/components/Paginacao/PaginationComponent.vue';
 import { usePaginationStore } from '@/stores/paginationStore';
-import FilterModal from '@/components/FilterModal/FilterModal.vue';
 
 export default defineComponent({
     name: 'resultados',
@@ -180,7 +178,6 @@ export default defineComponent({
         Slide,
         Navigation,
         PaginationComponent,
-        FilterModal,
     },
     data: () => ({
         resposta_original: [],
