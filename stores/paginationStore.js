@@ -7,6 +7,7 @@ export const usePaginationStore = defineStore({
     currentPages: 1,
     itemsPerPage: 12,
     totalPages: 0,
+    filterTurnoIes: 0,
     cursoExibido: [],
     filtroOriginal: [],
     itemFiltrado: undefined,
@@ -20,8 +21,8 @@ export const usePaginationStore = defineStore({
         return [];
       }
     },
-    turnosExistentes(){
-      if(this.cursoExibido && this.filtroOriginal.length < 1){
+    turnosExistentes() {
+      if (this.cursoExibido && this.filtroOriginal.length < 1) {
         const turnos = this.cursoOriginal.map((curso) => curso.turno);
         return [...new Set(turnos)].map((turno) => {
           return {
@@ -29,7 +30,7 @@ export const usePaginationStore = defineStore({
             nome: turno,
           };
         });
-      } else if(this.cursoExibido && this.filtroOriginal.length >= 1){
+      } else if (this.cursoExibido && this.filtroOriginal.length >= 1) {
         const turnos = this.filtroOriginal.map((curso) => curso.turno);
         return [...new Set(turnos)].map((turno) => {
           return {
@@ -37,14 +38,14 @@ export const usePaginationStore = defineStore({
             nome: turno,
           };
         });
-      }else {
+      } else {
         return [];
       }
     },
     setPage(page) {
       this.currentPages = page;
     },
-    currentPage(){
+    currentPage() {
       return this.currentPages;
     },
     getTotalPages() {
@@ -55,37 +56,44 @@ export const usePaginationStore = defineStore({
         return this.totalPages;
       }
     },
-    filtroIdIes(ies_id){
+    filtroIdIes(ies_id) {
       this.currentPages = 1;
+      this.filterTurnoIes = 1;
       this.itemFiltrado = this.cursoOriginal.filter((curso) => curso.ies_id == ies_id);
-      if(this.itemFiltrado.length > 0){
+      if (this.itemFiltrado.length > 0) {
         this.filtroOriginal = this.itemFiltrado;
         this.cursoExibido = this.itemFiltrado;
       }
       turnosExistentes();
     },
-    limparFiltro(){
+    limparFiltro() {
       this.currentPages = 1;
+      this.filterTurnoIes = 0;
       this.cursoExibido = this.cursoOriginal;
-      if(this.cursoExibido.length === 0){
+      if (this.cursoExibido.length === 0) {
         this.cursoExibido = this.cursoOriginal;
       }
       turnosExistentes();
     },
-    filtroTurno(opcao){
+    filtroTurno(opcao) {
       this.currentPages = 1;
-      if(this.filtroOriginal.length > 0){
-        this.itemFiltrado = this.filtroOriginal.filter((curso) => curso.turno == opcao);
-        if(this.itemFiltrado.length > 0){
-          this.cursoExibido = this.itemFiltrado;
+      if (this.filterTurnoIes === 0) {
+        if (this.filtroOriginal.length > 0) {
+          this.itemFiltrado = this.cursoOriginal.filter((curso) => curso.turno == opcao);
+          if (this.itemFiltrado.length > 0) {
+            this.cursoExibido = this.itemFiltrado;
+          }
         }
-      }else{
-        this.itemFiltrado = this.cursoOriginal.filter((curso) => curso.turno == opcao);
-        if(this.itemFiltrado.length > 0){
-          this.cursoExibido = this.itemFiltrado;
+      } else if (this.filterTurnoIes === 1) {
+        if (this.cursoOriginal.length > 0) {
+          this.itemFiltrado = this.filtroOriginal.filter((curso) => curso.turno == opcao);
+          if (this.itemFiltrado.length > 0) {
+            this.cursoExibido = this.itemFiltrado;
+          }
         }
       }
       turnosExistentes();
+
     }
   },
 });
