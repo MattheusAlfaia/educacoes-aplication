@@ -78,7 +78,7 @@ export const usePaginationStore = defineStore({
     filtroTurno(opcao) {
       this.currentPages = 1;
       if (this.filterTurnoIes === 0) {
-        if (this.filtroOriginal.length > 0) {
+        if (this.cursoExibido.length > 0) {
           this.itemFiltrado = this.cursoOriginal.filter((curso) => curso.turno == opcao);
           if (this.itemFiltrado.length > 0) {
             this.cursoExibido = this.itemFiltrado;
