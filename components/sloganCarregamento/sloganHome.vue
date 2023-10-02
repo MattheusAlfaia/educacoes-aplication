@@ -28,14 +28,12 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-
     &__container {
         width: 100%;
         max-width: 1200px;
         display: flex;
         justify-content: center;
         align-items: center;
-
         &__text {
             width: 100%;
             max-width: 600px;
@@ -43,36 +41,30 @@ export default {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-
             &__title {
-                color: #224ce3;
-                background-image: -webkit-linear-gradient(315deg, #224ce3 49%, #e81e1e 54%);
-                background-clip: text;
-                -webkit-background-clip: text;
-                text-fill-color: transparent;
-                -webkit-text-fill-color: transparent;
-                // sombra contorno
                 font-family: "Gill Sans", sans-serif;
                 font-size: 3rem;
+                color: #128199;
                 font-weight: bold;
                 text-align: center;
                 margin-bottom: 1rem;
-
                 @media (max-width: 768px) {
                     font-size: 1.8rem;
                 }
+                span{
+                    color: #f12f2f;
+                }
             }
-
             &__description {
                 font-family: "Gill Sans", sans-serif;
                 font-size: 1.5rem;
                 color: #ffffff;
                 text-align: center;
-
                 @media (max-width: 768px) {
                     font-size: 1.2rem;
                 }
             }
         }
     }
-}</style>
+}
+</style>
