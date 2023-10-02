@@ -44,7 +44,8 @@ export default {
             &__title {
                 font-family: "Gill Sans", sans-serif;
                 font-size: 3rem;
-                color: #ffffff;
+                color: hsl(198, 61%, 48%);
+                font-weight: bold;
                 text-align: center;
                 margin-bottom: 1rem;
                 @media (max-width: 768px) {
@@ -55,9 +56,9 @@ export default {
                 }
             }
             &__description {
-                font-family: cursive;
+                font-family: "Gill Sans", sans-serif;
                 font-size: 1.5rem;
-                color: #54ceef;
+                color: #ffffff;
                 text-align: center;
                 @media (max-width: 768px) {
                     font-size: 1.2rem;
