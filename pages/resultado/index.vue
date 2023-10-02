@@ -141,7 +141,7 @@
                                 <div class="row mt-1">
                                     <div class="col-md-12 text-center">
                                         <p class="text-secondary" v-if="result.reserva === 1">
-                                            <i class="bi bi-paperclip"></i> Em cadastro reserva
+                                            <i class="bi bi-paperclip"></i> Curso em cadastro reserva
                                         </p>
                                     </div>
                                 </div>
