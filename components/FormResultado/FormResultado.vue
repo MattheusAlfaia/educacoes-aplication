@@ -6,7 +6,7 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1"><i class="bi bi-easel"></i></span>
                         <!-- @change="filtrodataBusca(dataBusca)" v-model="nomeNivel" -->
-                        <select class="form-select" aria-label="Nível de Ensino" v-model="nomeNivel">
+                        <select class="form-select" aria-label="Nível de Ensino" placeholder="Selecione o nível de ensino" v-model="nomeNivel">
                             <option value="GRADUAÇÃO" selected>{{ dataBusca.nomeNivel }}</option>
                             <!-- <option v-for="(dataBusca, index) in dataBuscas" :key="index" :value="dataBusca.nome">
                             {{ dataBusca.nome }}
