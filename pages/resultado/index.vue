@@ -1,6 +1,7 @@
 <template>
     <div v-if="!resposta.cursos" class="text-center">
-        <span>Carregando...</span>
+        <!-- <span>Carregando...</span> -->
+        <sloganResultado />
     </div>
     <div v-else>
         <section class="mt-3 container">
@@ -170,6 +171,7 @@ import { cursoStore, pinia } from '@/stores/getCursos';
 import 'vue3-carousel/dist/carousel.css';
 import PaginationComponent from '@/components/Paginacao/PaginationComponent.vue';
 import { usePaginationStore } from '@/stores/paginationStore';
+import sloganResultado from '@/components/sloganCarregamento/sloganResultado.vue';
 
 export default defineComponent({
     name: 'resultados',
@@ -178,6 +180,7 @@ export default defineComponent({
         Slide,
         Navigation,
         PaginationComponent,
+        sloganResultado,
     },
     data: () => ({
         resposta_original: [],
