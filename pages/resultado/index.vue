@@ -30,7 +30,7 @@
                 </div>
             </div>
             <!-- ==================== -->
-            <!-- <div class="accordion accordion-flush" id="formResultado">
+            <div class="accordion accordion-flush" id="formResultado">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="flush-headingOne">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <!-- ================= -->
             <section class="container">
                 <div class="row">
