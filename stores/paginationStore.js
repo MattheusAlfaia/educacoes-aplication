@@ -31,7 +31,7 @@ export const usePaginationStore = defineStore({
           };
         });
       } else if (this.cursoExibido && this.filtroOriginal.length >= 1) {
-        const turnos = this.filtroOriginal.map((curso) => curso.turno);
+        const turnos = this.cursoExibido.map((curso) => curso.turno);
         return [...new Set(turnos)].map((turno) => {
           return {
             id: turno,
