@@ -14,6 +14,7 @@ const cursoStore = defineStore({
     Logos: [],
     Turnos: [],
     pesquisaData: [],
+    niveisEnsino: [],
   }),
   actions: {
     async getCursos(data) {
@@ -68,6 +69,15 @@ const cursoStore = defineStore({
         console.error("Erro ao obter os cursos:", error);
       }
     },
+
+    async getNiveisEnsino() {
+      try {
+        const response = await api.get("/niveis-de-ensino");
+        this.niveisEnsino = response.data;
+      } catch (error) {
+        console.error("Erro ao obter os cursos:", error);
+      }
+    }
 
     // async getLogos() {
     //   try {

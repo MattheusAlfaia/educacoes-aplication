@@ -1,28 +1,9 @@
 <template>
     <div v-if="!resposta.cursos" class="text-center">
-        <!-- <span>Carregando...</span> -->
         <sloganResultado />
     </div>
     <div v-else>
         <section class="mt-3 container">
-            <!-- ==================== -->
-            <div class="accordion accordion-flush" id="formResultado">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            <span class="accordion-title">Alterar sua busca</span>
-                        </button>
-                    </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                        data-bs-parent="#formResultado">
-                        <div class="accordion-body">
-                            <FormResultado :dataBusca="dataBusca" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ================= -->
             <div class="row mb-2">
                 <div class="d-flex justify-content-between">
                     <div class="col-sm-4 col-md-6 text-start">
@@ -48,6 +29,24 @@
                     </div>
                 </div>
             </div>
+            <!-- ==================== -->
+            <div class="accordion accordion-flush" id="formResultado">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <span class="accordion-title">Alterar sua busca</span>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                        data-bs-parent="#formResultado">
+                        <div class="accordion-body">
+                            <FormResultado :dataBusca="dataBusca" :niveisEnsino="niveisEnsino" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ================= -->
             <section class="container">
                 <div class="row">
                     <!-- {{ resposta.ies }} -->
@@ -270,6 +269,7 @@ export default defineComponent({
         const logos = ref([]);
         const paginationStore = usePaginationStore();
         const dataBusca = ref([]);
+        const niveisEnsino = ref([]);
 
         var data = myStore.response;
 
@@ -277,6 +277,9 @@ export default defineComponent({
             await myStore.getCursos(data)
             resposta.value = myStore.resposta;
             JSON.parse(JSON.stringify([resposta]));
+
+            await myStore.getNiveisEnsino();
+            niveisEnsino.value = myStore.niveisEnsino;
 
             dataBusca.value = myStore.pesquisaData;
 
@@ -288,7 +291,8 @@ export default defineComponent({
         return {
             resposta,
             logos,
-            dataBusca
+            dataBusca,
+            niveisEnsino,
         };
     },
 });
