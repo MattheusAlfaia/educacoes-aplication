@@ -120,10 +120,7 @@
                     <!-- {{ paginatedItems }} -->
                     <div class="row">
                         <div class="custom-card col-md-4 card m-2" v-for="(result, index) in paginatedItems" :key="index"
-                            @click="$router.push({
-                                name: 'curso',
-                                params: { id: result.id }
-                            })">
+                            @click="abrirCurso(result.id_curso)">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-5 profile-image">
@@ -286,6 +283,9 @@ export default defineComponent({
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,
             });
+        },
+        abrirCurso(id){
+            window.open('https://inscricao.educacoes.com.br/inscricao/' + id);
         },
         formatarData(data) {
             var data = new Date(data);
