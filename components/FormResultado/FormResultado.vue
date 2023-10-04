@@ -141,10 +141,10 @@ export default defineComponent({
             const myStore = cursoStore(pinia);
             myStore.setCursos(data);
             localStorage.setItem('data', JSON.stringify(data));
+            window.location.reload();
             // nomeNivel.value = '';
             // nomeCidade.value = '';
             // nomeCurso.value = '';
-            window.location.reload();
         };
 
         return {

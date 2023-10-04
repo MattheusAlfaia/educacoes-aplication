@@ -41,7 +41,62 @@
                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
                         data-bs-parent="#formResultado">
                         <div class="accordion-body">
-                            <FormResultado :dataBusca="dataBusca" :niveisEnsino="niveisEnsino" />
+                            <!-- <FormResultado :dataBusca="dataBusca" :niveisEnsino="niveisEnsino" /> -->
+                            <form @submit.prevent="graduacaoSubmit" class="mt-1">
+                                <div class="row col">
+                                    <div class="col-lg-4">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="bi bi-easel"></i></span>
+                                            <!-- @change="filtrodataBusca(dataBusca)" v-model="nomeNivel" -->
+                                            <select class="form-select" aria-label="Nível de Ensino"
+                                                placeholder="Selecione o nível de ensino" v-model="nomeNivel">
+                                                <!-- <option value="GRADUAÇÃO" selected>{{ dataBusca.nomeNivel }}</option> -->
+                                                <option disabled="disabled" value="">Selecione o Nível de Ensino
+                                                </option>
+                                                <option v-for="nivelEnsino in niveisEnsino" :key="nivelEnsino.id"
+                                                    :value="nivelEnsino.nome">
+                                                    {{ nivelEnsino.nome }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="bi bi-geo-alt"></i></span>
+                                            <input type="text" spellcheck="false" class="form-control curso"
+                                                placeholder="Cidade de sua preferência" aria-label="Cidade"
+                                                v-model="nomeCidade" aria-describedby="basic-addon1" name="nomeCidade"
+                                                @input="fetchEndereco" />
+                                            <ul v-if="showLugar" class="cidade-options">
+                                                <li v-for="option in optionsLugar" :key="option.id"
+                                                    @click="selectOptionEndereco(option)">
+                                                    {{ option.nome }}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="input-group mb-3">
+                                            <!-- :value="dataBusca.nomeCurso" -->
+                                            <input type="text" class="form-control curso" placeholder="Curso"
+                                                aria-label="Curso" aria-describedby="basic-addon1" name="curso"
+                                                @input="fetchOptions" v-model="nomeCurso" />
+                                            <button type="submit" class="btn btn-outline-secondary"
+                                                :disabled="nomeNivel == null || nomeCidade == null"><i
+                                                    class="bi bi-search"></i></button>
+                                            <ul v-if="showOptions" class="curso-options">
+                                                <li v-for="option in options" :key="option.id"
+                                                    @click="selectOption(option)">
+                                                    {{ option.nome }}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- {{ dataBusca }} -->
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -153,10 +208,11 @@ import { defineComponent } from 'vue'
 import { Carousel, Navigation, Slide } from 'vue3-carousel'
 import { cursoStore, pinia } from '@/stores/getCursos';
 import 'vue3-carousel/dist/carousel.css';
+import api from "@/services/api";
 import PaginationComponent from '@/components/Paginacao/PaginationComponent.vue';
 import { usePaginationStore } from '@/stores/paginationStore';
 import sloganResultado from '@/components/sloganCarregamento/sloganResultado.vue';
-import FormResultado from '@/components/FormResultado/FormResultado.vue';
+// import FormResultado from '@/components/FormResultado/FormResultado.vue';
 
 export default defineComponent({
     name: 'resultados',
@@ -166,9 +222,15 @@ export default defineComponent({
         Navigation,
         PaginationComponent,
         sloganResultado,
-        FormResultado,
+        // FormResultado,
     },
     data: () => ({
+        optionsLugar: [],
+        options: [],
+        showOptions: false,
+        showLugar: false,
+        cursos: [],
+        endereco: [],
         resposta_original: [],
         urlLogos: {
             url: 'https://adm.educacoes.com.br/storage/uploads/logo/',
@@ -235,7 +297,43 @@ export default defineComponent({
                 mes = "0" + mes;
             var ano = data.getFullYear();
             return dia + "/" + mes + "/" + ano;
-        }
+        },
+        async fetchEndereco() {
+            if (this.nomeCidade.length > 1) {
+                this.showLugar = true;
+                const response = await api.post('/enderecos/cidades')
+                this.endereco = response.data
+                this.optionsLugar = this.endereco.filter((option) => {
+                    return option.nome
+                        .toLowerCase()
+                        .startsWith(this.nomeCidade.toLowerCase());
+                });
+            } else {
+                this.showLugar = false;
+            }
+        },
+        async fetchOptions() {
+            if (this.nomeCurso.length > 1) {
+                this.showOptions = true;
+                const response = await api.get('/cursos/autocomplete')
+                this.cursos = response.data
+                this.options = this.cursos.filter((option) => {
+                    return option.nome
+                        .toLowerCase()
+                        .startsWith(this.nomeCurso.toLowerCase());
+                });
+            } else {
+                this.showOptions = false;
+            }
+        },
+        selectOptionEndereco(option) {
+            this.nomeCidade = option.nome;
+            this.showLugar = false;
+        },
+        selectOption(option) {
+            this.nomeCurso = option.nome;
+            this.showOptions = false;
+        },
     },
     computed: {
         turnosExistentes() {
@@ -270,6 +368,8 @@ export default defineComponent({
         const paginationStore = usePaginationStore();
         const dataBusca = ref([]);
         const niveisEnsino = ref([]);
+        const turnos = ref([]);
+        const areaConhecimento = ref([]);
 
         var data = myStore.response;
 
@@ -277,6 +377,12 @@ export default defineComponent({
             await myStore.getCursos(data)
             resposta.value = myStore.resposta;
             JSON.parse(JSON.stringify([resposta]));
+
+            await myStore.getTurnos();
+            turnos.value = myStore.Turnos;
+
+            await myStore.getAreaConhecimento();
+            areaConhecimento.value = myStore.areaConhecimento;
 
             await myStore.getNiveisEnsino();
             niveisEnsino.value = myStore.niveisEnsino;
@@ -288,11 +394,47 @@ export default defineComponent({
             paginationStore.cursoExibido = resposta.value.cursos;
         });
 
+        const nomeNivel = ref(null);
+        const nomeModalidade = ref(null);
+        const nomeCidade = ref(null);
+        const nomeCurso = ref(null);
+        const nomeArea = ref(null);
+        const nomeEstado = ref(null);
+        const nomeTurno = ref(null);
+        const anoEscolar = ref(null);
+
+        const graduacaoSubmit = () => {
+            const data = {
+                nomeNivel: nomeNivel.value,
+                nomeModalidade: '',
+                nomeCurso: nomeCurso.value,
+                nomeArea: '',
+                nomeTurno: '',
+                nomeCidade: nomeCidade.value,
+                nomeEstado: '',
+            };
+            const myStore = cursoStore(pinia);
+            myStore.setCursos(data);
+            localStorage.setItem('data', JSON.stringify(data));
+            window.location.reload();
+            }
+
         return {
             resposta,
             logos,
             dataBusca,
             niveisEnsino,
+            turnos,
+            areaConhecimento,
+            nomeNivel,
+            nomeModalidade,
+            nomeCidade,
+            nomeCurso,
+            nomeArea,
+            nomeEstado,
+            nomeTurno,
+            anoEscolar,
+            graduacaoSubmit,
         };
     },
 });

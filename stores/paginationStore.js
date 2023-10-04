@@ -23,7 +23,7 @@ export const usePaginationStore = defineStore({
     },
     turnosExistentes() {
       if (this.cursoExibido && this.filtroOriginal.length < 1) {
-        const turnos = this.cursoOriginal.map((curso) => curso.turno);
+        const turnos = this.cursoOriginal ? this.cursoOriginal.map((curso) => curso.turno) : [];
         return [...new Set(turnos)].map((turno) => {
           return {
             id: turno,
@@ -31,7 +31,7 @@ export const usePaginationStore = defineStore({
           };
         });
       } else if (this.cursoExibido && this.filtroOriginal.length >= 1) {
-        const turnos = this.cursoExibido.map((curso) => curso.turno);
+        const turnos = this.cursoExibido ? this.cursoExibido.map((curso) => curso.turno) : [];
         return [...new Set(turnos)].map((turno) => {
           return {
             id: turno,
@@ -41,7 +41,7 @@ export const usePaginationStore = defineStore({
       } else {
         return [];
       }
-    },
+    },    
     setPage(page) {
       this.currentPages = page;
     },
@@ -64,7 +64,7 @@ export const usePaginationStore = defineStore({
         this.filtroOriginal = this.itemFiltrado;
         this.cursoExibido = this.itemFiltrado;
       }
-      turnosExistentes();
+      // turnosExistentes();
     },
     limparFiltro() {
       this.currentPages = 1;
@@ -73,7 +73,7 @@ export const usePaginationStore = defineStore({
       if (this.cursoExibido.length === 0) {
         this.cursoExibido = this.cursoOriginal;
       }
-      turnosExistentes();
+      // turnosExistentes();
     },
     filtroTurno(opcao) {
       this.currentPages = 1;
@@ -92,7 +92,7 @@ export const usePaginationStore = defineStore({
           }
         }
       }
-      turnosExistentes();
+      // turnosExistentes();
 
     }
   },
