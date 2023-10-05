@@ -749,16 +749,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.from-group{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1280px;
+    padding: 0 1rem;
+}
 .curso-options {
     position: absolute;
     background-color: #fff;
-    width: 44%;
+    width: 100%;
     max-height: 200px;
     overflow-y: auto;
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 0;
-    margin: 4.5rem 0 0 0;
+    margin: 4.5rem 0 0 1rem;
     list-style: none;
     z-index: 10;
 
@@ -772,13 +778,23 @@ export default {
         }
     }
 
-    @media (min-width: 1280px) {
-        width: 24%;
-    }
-
-    @media (max-width: 1279px) {
+    @media (max-width: 512px) {
         width: 90%;
         margin-left: 1rem;
+    }
+
+    @media (min-width: 513px) {
+        margin-left: 1rem;
+        width: 50%;
+    }
+    @media (min-width: 910px) {
+        width: 40%;
+    }
+    @media (min-width: 1140px) {
+        width: 30%;
+    }
+    @media (min-width: 1280px) {
+        width: 24%;
     }
 }
 
@@ -807,7 +823,7 @@ export default {
 
     @media (min-width: 1280px) {
         // para maior que 1280px
-        width: 20rem;
+        width: 14%;
     }
 
     @media (max-width: 765px) {
