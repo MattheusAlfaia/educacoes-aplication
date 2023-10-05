@@ -3,7 +3,7 @@
         <div class="ag-courses_box">
 
             <div class="ag-courses_item">
-                <a href="#" class="ag-courses-item_link">
+                <a href="https://portal.educacoes.com.br/" class="ag-courses-item_link">
                     <div class="ag-courses-item_bg"></div>
                     <div class="ag-courses-item_title resp text-center">
                         <div class="icon mb-1">
@@ -15,7 +15,7 @@
             </div>
 
             <div class="ag-courses_item">
-                <a href="#" class="ag-courses-item_link">
+                <a href="https://api.whatsapp.com/send?phone=5511969305718&text=Ol%C3%A1%2C%20gostaria%20de%20renovar%20a%20minha%20bolsa." class="ag-courses-item_link">
                     <div class="ag-courses-item_bg"></div>
                     <div class="ag-courses-item_title resp text-center">
                         <div class="icon mb-1">
@@ -27,7 +27,7 @@
             </div>
 
             <div class="ag-courses_item">
-                <a href="#" class="ag-courses-item_link">
+                <a href="https://www.educacoes.com.br/#/perguntas-frequentes" class="ag-courses-item_link">
                     <div class="ag-courses-item_bg"></div>
                     <div class="ag-courses-item_title resp text-center">
                         <div class="icon mb-1">

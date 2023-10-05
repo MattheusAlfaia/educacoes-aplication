@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <a class="link" href="https://google.com">
+        <a class="link" href="https://www.educacoes.com.br/#/seja-parceiro">
         <div class="courses-container">
             <div class="course">
                     <div class="course-info">

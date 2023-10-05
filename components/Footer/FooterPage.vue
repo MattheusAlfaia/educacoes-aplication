@@ -36,19 +36,19 @@
             <div class="row">
                 <div class="socials col-xs-12 col-sm-12 col-md-12 mt-sm-5">
                     <ul class="list-unstyled list-inline social text-center">
-                        <li class="list-inline-item"><a href="#">
+                        <li class="list-inline-item"><a href="https://www.facebook.com/institutoeducacoes">
                                 <BootstrapIcon class="nav-link icon" name="facebook" />
                             </a></li>
-                        <li class="list-inline-item"><a href="#">
+                        <li class="list-inline-item"><a href="https://www.instagram.com/institutoeducacoes/">
                                 <BootstrapIcon class="nav-link icon" name="instagram" />
                             </a></li>
-                        <li class="list-inline-item"><a href="#">
+                        <li class="list-inline-item"><a href="https://t.me/joinchat/qqsJQ3otLG9jMzQx">
                                 <BootstrapIcon class="nav-link icon" name="telegram" />
                             </a></li>
-                        <li class="list-inline-item"><a href="#">
+                        <li class="list-inline-item"><a href="https://www.linkedin.com/company/instituto-educa%C3%A7%C3%B5es/">
                                 <BootstrapIcon class="nav-link icon" name="linkedin" />
                             </a></li>
-                        <li class="list-inline-item"><a href="#" target="_blank">
+                        <li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone=5511969305718&text=Ol%C3%A1%3F%20Vi%20o%20Educa%C3%A7%C3%B5es%20pelo%20novo%20portal.%20Pode%20me%20dar%20mais%20informa%C3%A7%C3%B5es%3F" target="_blank">
                                 <BootstrapIcon class="nav-link icon" name="whatsapp" />
                             </a></li>
                     </ul>
