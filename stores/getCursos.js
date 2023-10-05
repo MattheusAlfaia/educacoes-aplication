@@ -11,7 +11,6 @@ const cursoStore = defineStore({
     response: null,
     Modalidades: [],
     areaConhecimento: [],
-    Logos: [],
     Turnos: [],
     pesquisaData: [],
     niveisEnsino: [],
@@ -22,11 +21,30 @@ const cursoStore = defineStore({
         if (data = JSON.parse(localStorage.getItem("data"))) {
           try {
             const response = await api.post("cursos/cursos-e-instituicoes", data);
-            this.resposta = response.data;
+            if (response.data.cursos.length == 0) {
+              // Aqui roda a api para pegar resultados semelhantes
+              // modificar data para trazer resultados parecidos
+              data.nomeNivel = "Graduação"
+
+              const NewData = {
+                "nomeArea": "",
+                "nomeCidade": "",
+                "areaConhecimento": "",
+                "nomeCurso": "",
+                "nomeEstado": "",
+                "nomeModalidade": "",
+                "nomeNivel": data.nomeNivel,
+                "nomeTurno": "",
+              }
+              const response = await api.post("cursos/cursos-e-instituicoes", NewData);
+              this.resposta = response.data;
+            } else {
+              this.resposta = response.data;
+            }
           } catch (error) {
             console.error("Erro ao obter os cursos:", error);
           }
-        }else{
+        } else {
           window.location.href = "/"
         }
       } else {
@@ -78,15 +96,6 @@ const cursoStore = defineStore({
         console.error("Erro ao obter os cursos:", error);
       }
     }
-
-    // async getLogos() {
-    //   try {
-    //     const response = await logoApi.get("logo/");
-    //     this.Logos = response.data;
-    //   } catch (error) {
-    //     console.error("Erro ao obter os cursos:", error);
-    //   }
-    // }
   },
 });
 
