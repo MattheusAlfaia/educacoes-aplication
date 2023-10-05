@@ -22,9 +22,8 @@ const cursoStore = defineStore({
           try {
             const response = await api.post("cursos/cursos-e-instituicoes", data);
             if (response.data.cursos.length == 0) {
-              // Aqui roda a api para pegar resultados semelhantes
-              // modificar data para trazer resultados parecidos
-              data.nomeNivel = "Graduação"
+              data.nomeNivel = "GRADUAÇÃO"
+              data.nomeModalidade = "EaD (POLO)"
 
               const NewData = {
                 "nomeArea": "",
@@ -32,7 +31,7 @@ const cursoStore = defineStore({
                 "areaConhecimento": "",
                 "nomeCurso": "",
                 "nomeEstado": "",
-                "nomeModalidade": "",
+                "nomeModalidade": data.nomeModalidade,
                 "nomeNivel": data.nomeNivel,
                 "nomeTurno": "",
               }

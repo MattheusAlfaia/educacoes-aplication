@@ -27,20 +27,6 @@
 <script>
 import { defineComponent } from 'vue'
 import { Carousel, Navigation, Slide } from 'vue3-carousel'
-import AGNUS from '@/assets/images/instituicoes/AGNUS.png';
-import ALPHA from '@/assets/images/instituicoes/ALPHA.jpg';
-import BALAO_MAGICO from '@/assets/images/instituicoes/BALAO_MAGICO.jpg';
-import CAMINHO from '@/assets/images/instituicoes/CAMINHO.jpg';
-import Casa from '@/assets/images/instituicoes/Casa.png';
-import CENTRO_EDUCACIONAL_LOUISIANA from '@/assets/images/instituicoes/CENTRO_EDUCACIONAL_LOUISIANA.png';
-import CTRL_PLAY from '@/assets/images/instituicoes/CTRL_MAIS_PLAY.png';
-import ESBAM from '@/assets/images/instituicoes/ESBAM.jpeg';
-import ETEP from '@/assets/images/instituicoes/ETEP.png';
-import ICBEU from '@/assets/images/instituicoes/ICBEU.jpg';
-import Juvenil from '@/assets/images/instituicoes/Juvenil.jpeg';
-import PALAS_ATENA from '@/assets/images/instituicoes/PALAS_ATENA.jpg';
-import UNINORTE from '@/assets/images/instituicoes/UNINORTE.png';
-import UNIVERSITARIO_SAO_LUCAS from '@/assets/images/instituicoes/UNIVERSITARIO_SAO_LUCAS.jpg';
 
 import 'vue3-carousel/dist/carousel.css';
 import { cursoStore, pinia } from '@/stores/getCursos';
