@@ -192,7 +192,7 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="row mb-1 fixed-bottom-div">
+                                <div class="row mb-1 mt-2 fixed-bottom-div">
                                     <div class="col-md-12 text-center">
                                         <p class="infos">{{ result.nivel_ensino_nome }} • {{ result.modalidade_nome }} • {{
                                             result.duracao }}</p>
