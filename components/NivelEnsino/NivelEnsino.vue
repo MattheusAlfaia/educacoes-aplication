@@ -274,7 +274,7 @@
     align-items: center;
   
     .gww {
-      width: 90%;
+      width: 100%;
       height: 1.5rem;
       border-radius: 0.5rem 0.5rem 0 0;
       font-size: 0.8rem;
