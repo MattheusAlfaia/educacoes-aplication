@@ -281,7 +281,7 @@
       color: #ffffff;
       text-align: center;
       text-transform: uppercase;
-      padding: 0.5rem;
+      padding: 0.2rem;
   
       @media (max-width: 900px) {
         width: 80%;
