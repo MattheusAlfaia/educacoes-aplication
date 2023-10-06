@@ -19,6 +19,16 @@
                                 <i class="bi bi-filter"></i>
                             </button>
                             <ul class="dropdown-menu menu-filtro" aria-labelledby="filterDropdown">
+                                <li>
+                                    <input type="radio" id="menorValor" name="menorValor" value="menorValor"
+                                        @click="filtroValorMenor()" />
+                                    <label for="menorValor">Menor Valor <i class="bi bi-arrow-down"></i></label>
+                                </li>
+                                <li>
+                                    <input type="radio" id="maiorValor" name="maiorValor" value="maiorValor"
+                                        @click="filtroValorMaior()" />
+                                    <label for="maiorValor">Maior Valor <i class="bi bi-arrow-up"></i></label>
+                                </li>
                                 <li v-for="(turno, index) in turnosExistentes" :key="index">
                                     <input type="radio" :id="turno.id" name="turno" :value="turno.nome"
                                         @click="filtroTurno(turno.nome)" class="fturnos" />
@@ -275,6 +285,14 @@ export default defineComponent({
         filtroTurno(opcao) {
             const paginationStore = usePaginationStore();
             paginationStore.filtroTurno(opcao);
+        },
+        filtroValorMenor(){
+            const paginationStore = usePaginationStore();
+            paginationStore.filtroValorMenor();
+        },
+        filtroValorMaior(){
+            const paginationStore = usePaginationStore();
+            paginationStore.filtroValorMaior();
         },
         formatarMoeda(valor) {
             return valor.toLocaleString('pt-BR', {

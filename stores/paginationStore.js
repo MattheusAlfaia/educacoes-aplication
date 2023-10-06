@@ -41,7 +41,7 @@ export const usePaginationStore = defineStore({
       } else {
         return [];
       }
-    },    
+    },
     setPage(page) {
       this.currentPages = page;
     },
@@ -94,6 +94,12 @@ export const usePaginationStore = defineStore({
       }
       // turnosExistentes();
 
-    }
+    },
+    filtroValorMenor() {
+      this.cursoExibido.sort((a, b) => a.valor_bolsa - b.valor_bolsa);
+    },
+    filtroValorMaior() {
+      this.cursoExibido.sort((a, b) => b.valor_bolsa - a.valor_bolsa);
+    },
   },
 });
