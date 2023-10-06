@@ -24,7 +24,9 @@
       </Carousel>
   
       <div class="rounded">
-        <div class="gww" :style="{ backgroundColor: icons[activeIndex].background }"></div>
+        <div class="gww" :style="{ backgroundColor: icons[activeIndex].background }">
+          Você está pesquisando em {{ icons[activeIndex].name }}
+        </div>
       </div>
     </div>
   
@@ -271,14 +273,19 @@
     align-items: center;
   
     .gww {
-      width: 1.5rem;
+      width: 15%;
       height: 1.5rem;
-      border-radius: 100%;
+      border-radius: 0.5rem 0.5rem 0 0;
+      font-size: 0.8rem;
       margin-top: -1rem;
+      color: #ffffff;
+      text-align: center;
+      text-transform: uppercase;
+      padding: 0.5rem;
   
       @media (max-width: 900px) {
-        height: 1rem;
-        width: 1rem;
+        width: 80%;
+        height: auto;
       }
     }
   }
