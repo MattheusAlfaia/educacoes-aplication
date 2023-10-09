@@ -8,7 +8,7 @@
         <InstituicoesParceiras />
         <CredenciarInstuicao />
         <LinksCards />
-        <Convenios />
+        <!-- <Convenios /> -->
         <VideoInstitucional />
     </section>
 </template>
@@ -19,8 +19,8 @@ import NivelEnsinoSlider from '~/components/NivelEnsino/NivelEnsino.vue';
 import InstituicoesParceiras from '~/components/InstituicoesParceiras/InstParceiros.vue'
 import CredenciarInstuicao from '~/components/CredenciarInstuicao/CredInst.vue';
 import LinksCards from '~/components/LinksCards/LinksCards.vue';
-import Convenios from '~/components/Convenios/Convenios.vue';
-import VideoInstitucional from '~/components/VideoInstitucional/VideoInstitucional.vue'; //com info *arrumar
+// import Convenios from '~/components/Convenios/Convenios.vue';
+import VideoInstitucional from '~/components/VideoInstitucional/VideoInstitucional.vue';
 import sloganHome from '~/components/sloganCarregamento/sloganHome.vue';
 export default {
     name: 'Home',
@@ -30,7 +30,7 @@ export default {
         InstituicoesParceiras,
         CredenciarInstuicao,
         LinksCards,
-        Convenios,
+        // Convenios,
         VideoInstitucional,
         sloganHome
     },
