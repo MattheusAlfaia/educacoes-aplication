@@ -289,11 +289,6 @@
       padding: 0.2rem;
       // sombra
       box-shadow: 0 0 2em rgba(0, 0, 0, .2);
-  
-      @media (max-width: 900px) {
-        width: 80%;
-        height: auto;
-      }
     }
   }
   </style>~/stores/PiniaStore
