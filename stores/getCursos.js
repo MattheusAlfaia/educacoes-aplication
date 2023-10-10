@@ -22,6 +22,7 @@ const cursoStore = defineStore({
           try {
             const response = await api.post("cursos/cursos-e-instituicoes", data);
             if (response.data.cursos.length == 0) {
+              // Sem resultados aqui
               data.nomeNivel = "GRADUAÇÃO"
               data.nomeModalidade = "EaD (POLO)"
 

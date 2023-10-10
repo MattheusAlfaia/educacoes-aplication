@@ -77,8 +77,9 @@
                                             <select class="form-select" aria-label="Modalidade" placeholder="Modalidade"
                                                 v-model="nomeModalidade" :disabled="nomeNivel != 'GRADUAÇÃO' && nomeNivel != 'CURSOS TÉCNICOS' && nomeNivel != 'CURSOS LIVRES' && nomeNivel != 'DOUTORADO' && nomeNivel != 'MESTRADO'">
                                                 <option disabled="disabled" value="">Selecione a Modalidade</option>
-                                                <option value="PRESENCIAL">Presencial</option>
-                                                <option value="EAD">EAD</option>
+                                                <option v-for="modalidade in modalidades" :key="modalidade.id" :value="modalidade.nome">
+                                                    {{ modalidade.nome }}
+                                                </option>
                                             </select>
                                         </div>
                                     </div>
@@ -399,6 +400,7 @@ export default defineComponent({
         const niveisEnsino = ref([]);
         const turnos = ref([]);
         const areaConhecimento = ref([]);
+        const modalidades = ref([]);
 
         var data = myStore.response;
 
@@ -415,6 +417,9 @@ export default defineComponent({
 
             await myStore.getNiveisEnsino();
             niveisEnsino.value = myStore.niveisEnsino;
+
+            await myStore.getModalidades();
+            modalidades.value = myStore.Modalidades;
 
             dataBusca.value = myStore.pesquisaData;
 
@@ -435,7 +440,7 @@ export default defineComponent({
         const graduacaoSubmit = () => {
             const data = {
                 nomeNivel: nomeNivel.value,
-                nomeModalidade: '',
+                nomeModalidade: nomeModalidade.value,
                 nomeCurso: nomeCurso.value,
                 nomeArea: '',
                 nomeTurno: '',
@@ -453,6 +458,7 @@ export default defineComponent({
             logos,
             dataBusca,
             niveisEnsino,
+            modalidades,
             turnos,
             areaConhecimento,
             nomeNivel,
