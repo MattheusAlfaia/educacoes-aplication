@@ -54,7 +54,7 @@
                             <!-- <FormResultado :dataBusca="dataBusca" :niveisEnsino="niveisEnsino" /> -->
                             <form @submit.prevent="graduacaoSubmit" class="mt-1">
                                 <div class="row col">
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-3">
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-easel"></i></span>
@@ -71,7 +71,18 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-3">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-backpack"></i></span>
+                                            <select class="form-select" aria-label="Modalidade" placeholder="Modalidade"
+                                                v-model="nomeModalidade" :disabled="nomeNivel != 'GRADUAÇÃO' && nomeNivel != 'CURSOS TÉCNICOS' && nomeNivel != 'CURSOS LIVRES' && nomeNivel != 'DOUTORADO' && nomeNivel != 'MESTRADO'">
+                                                <option disabled="disabled" value="">Selecione a Modalidade</option>
+                                                <option value="PRESENCIAL">Presencial</option>
+                                                <option value="EAD">EAD</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-geo-alt"></i></span>
@@ -87,7 +98,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-3">
                                         <div class="input-group mb-3">
                                             <!-- :value="dataBusca.nomeCurso" -->
                                             <input type="text" class="form-control curso" placeholder="Curso"
