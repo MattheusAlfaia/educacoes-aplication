@@ -87,7 +87,7 @@
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="basic-addon1"><i
                                                     class="bi bi-geo-alt"></i></span>
-                                            <input type="text" spellcheck="false" class="form-control curso"
+                                            <input type="text" spellcheck="false" class="form-control cidade"
                                                 placeholder="Cidade de sua preferência" aria-label="Cidade"
                                                 v-model="nomeCidade" aria-describedby="basic-addon1" name="nomeCidade"
                                                 @input="fetchEndereco" />
