@@ -22,16 +22,16 @@
             <ul class="navbar-nav justify-content-center align-items-center flex-grow-1 pe-3">
 
               <li class="nav-item mx-2">
-                <a class="nav-link active" href="https://www.educacoes.com.br/#/quem-somos">QUEM SOMOS</a>
+                <a class="nav-link active" href="/quem-somos">QUEM SOMOS</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link active" href="https://www.educacoes.com.br/#/seja-parceiro">SEJA PARCEIRO</a>
+                <a class="nav-link active" href="/seja-parceiro">SEJA PARCEIRO</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link active" href="https://www.educacoes.com.br/#/perguntas-frequentes">DÚVIDAS</a>
+                <a class="nav-link active" href="/duvidas">DÚVIDAS</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link active" href="https://www.educacoes.com.br/#/editais-regulamento">REGULAMENTO</a>
+                <a class="nav-link active" href="/regulamento">REGULAMENTO</a>
               </li>
               <li class="nav-item mx-2">
                 <a class="nav-link active" href="https://inscricao.educacoes.com.br/login">PORTAL DO BOLSISTA</a>
