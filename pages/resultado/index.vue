@@ -90,7 +90,7 @@
                                             <input type="text" spellcheck="false" class="form-control cidade"
                                                 placeholder="Cidade de sua preferência" aria-label="Cidade"
                                                 v-model="nomeCidade" aria-describedby="basic-addon1" name="nomeCidade"
-                                                @input="fetchEndereco" />
+                                                :disabled="nomeModalidade == 'EaD (100% ON-LINE)'" @input="fetchEndereco" />
                                             <ul v-if="showLugar" class="cidade-options">
                                                 <li v-for="option in optionsLugar" :key="option.id"
                                                     @click="selectOptionEndereco(option)">
