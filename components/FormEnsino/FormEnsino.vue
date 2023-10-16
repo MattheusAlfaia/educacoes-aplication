@@ -46,7 +46,7 @@
             </form>
             <!-- pós graduação -->
             <form v-if="indice === 1" @submit.prevent="posgraduacaoSubmit">
-                <div class="form-group col-lg-2 col-md-6">
+                <div class="form-group col-lg-3">
                     <div class="row mb-2">
                         <div class="col-md-12 col-lg-12">
                             <label for="cidade" class="form-label">Cidade:</label>
@@ -78,7 +78,7 @@
             </form>
             <!-- EDUCAÇÃO BÁSICA -->
             <form v-if="indice === 2" @submit.prevent="educBasicaSubmit">
-                <div class="form-group col-sm-6 col-lg-4 col-md-6">
+                <div class="form-group col-sm-6 col-lg-3 col-md-6">
                     <div class="row mb-2">
                         <div class="col-md-12 col-lg-12">
                             <label for="cidade" class="form-label">Cidade:</label>
@@ -110,9 +110,9 @@
             </form>
             <!-- Idiomas -->
             <form v-if="indice === 3" @submit.prevent="idiomasSubmit">
-                <div class="form-group col-sm-6 col-lg-4 col-md-6">
+                <div class="form-group col-sm-12 col-lg-3 col-md-6">
                     <div class="row mb-2">
-                        <div class="col-md-12 col-lg-12">
+                        <div class="col-lg-12">
                             <label for="form-select" class="form-label">Selecione Modalidade:</label>
                             <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade">
                                 <option v-for="modalidade in modalidades" :key="modalidade.id" :value="modalidade.nome">
@@ -122,7 +122,7 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <div class="col-md-12 col-lg-12">
+                        <div class="col-lg-12">
                             <label for="cidade" class="form-label">Cidade:</label>
                             <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
                                 @input="fetchEndereco" autocomplete="off">
@@ -152,7 +152,7 @@
                                 </option>
                             </select>
                         </div>
-                        <div class=" col-md-12 col-lg-6 mb-2">
+                        <div class="col-md-12 col-lg-6 mb-2">
                             <label for="cidade" class="form-label">Cidade:</label>
                             <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
                                 @input="fetchEndereco" autocomplete="off">
@@ -182,7 +182,7 @@
             </form>
             <!-- cursos pos-tecnicos -->
             <form v-if="indice === 5" @submit.prevent="cursosPosTecnico">
-                <div class="form-group col-sm-6 col-lg-4 col-md-6">
+                <div class="form-group col-sm-6 col-lg-3 col-md-6">
                     <div class="row mb-2">
                         <div class="col-md-12 col-lg-12">
                             <label for="form-select" class="form-label">Selecione Modalidade:</label>
@@ -254,7 +254,7 @@
             </form>
             <!-- curso supletivo -->
             <form v-if="indice === 7" @submit.prevent="supletivoSubmit">
-                <div class="form-group col-sm-6 col-lg-4 col-md-6">
+                <div class="form-group col-sm-6 col-lg-3 col-md-6">
                     <div class="row mb-2">
                         <div class="col-md-12 col-lg-12">
                             <label for="form-select" class="form-label">Selecione Modalidade:</label>
@@ -286,7 +286,7 @@
             </form>
             <!-- curso pré-vestibular -->
             <form v-if="indice === 8" @submit.prevent="preVestibularSubmit">
-                <div class="form-group col-sm-6 col-lg-4 col-md-6">
+                <div class="form-group col-sm-6 col-lg-3 col-md-6">
                     <div class="row mb-2">
                         <div class="col-md-12 col-lg-12">
                             <label for="form-select" class="form-label">Selecione Modalidade:</label>
@@ -318,7 +318,7 @@
             </form>
             <!-- mestrado -->
             <form v-if="indice === 9" @submit.prevent="mestradoSubmit">
-                <div class="form-group">
+                <div class="form-group col-lg-3">
                     <div class="col-lg-12">
                         <label for="form-select" class="form-label">Selecione Modalidade:</label>
                         <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade">
@@ -346,7 +346,7 @@
             </form>
             <!-- Doutorado -->
             <form v-if="indice === 10" @submit.prevent="doutoradoSubmit">
-                <div class="form-group">
+                <div class="form-group col-lg-3">
                     <div class="col-lg-12">
                         <label for="form-select" class="form-label">Selecione Modalidade:</label>
                         <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade">
