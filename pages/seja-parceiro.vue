@@ -244,7 +244,7 @@
                         <img src="@/assets/images/sejaParceiro/instituto_13.jpg" width="100%" height="auto">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_14.jpg" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_14.jpg" width="100%" height="auto">
                     </div>
                 </div>
 
