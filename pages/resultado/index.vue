@@ -105,9 +105,9 @@
                                             <input type="text" class="form-control curso" placeholder="Curso"
                                                 aria-label="Curso" aria-describedby="basic-addon1" name="curso"
                                                 @input="fetchOptions" v-model="nomeCurso" />
-                                            <button type="submit" class="btn btn-outline-secondary"
-                                                :disabled="nomeNivel == null || nomeCidade == null"><i
-                                                    class="bi bi-search"></i></button>
+                                                <button type="submit" class="btn btn-outline-secondary"
+                                                :disabled="nomeNivel == null || (nomeModalidade !== 'EaD (100% ON-LINE)' && nomeCidade == null)">
+                                                <i class="bi bi-search"></i></button>
                                             <ul v-if="showOptions" class="curso-options">
                                                 <li v-for="option in options" :key="option.id"
                                                     @click="selectOption(option)">
