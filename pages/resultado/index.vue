@@ -73,11 +73,14 @@
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-backpack"></i></span>
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="bi bi-backpack"></i></span>
                                             <select class="form-select" aria-label="Modalidade" placeholder="Modalidade"
-                                                v-model="nomeModalidade" :disabled="nomeNivel != 'GRADUAÇÃO' && nomeNivel != 'CURSOS TÉCNICOS' && nomeNivel != 'CURSOS LIVRES' && nomeNivel != 'DOUTORADO' && nomeNivel != 'MESTRADO'">
+                                                v-model="nomeModalidade"
+                                                :disabled="nomeNivel != 'GRADUAÇÃO' && nomeNivel != 'CURSOS TÉCNICOS' && nomeNivel != 'CURSOS LIVRES' && nomeNivel != 'DOUTORADO' && nomeNivel != 'MESTRADO'">
                                                 <option disabled="disabled" value="">Selecione a Modalidade</option>
-                                                <option v-for="modalidade in modalidades" :key="modalidade.id" :value="modalidade.nome">
+                                                <option v-for="modalidade in modalidades" :key="modalidade.id"
+                                                    :value="modalidade.nome">
                                                     {{ modalidade.nome }}
                                                 </option>
                                             </select>
@@ -105,7 +108,7 @@
                                             <input type="text" class="form-control curso" placeholder="Curso"
                                                 aria-label="Curso" aria-describedby="basic-addon1" name="curso"
                                                 @input="fetchOptions" v-model="nomeCurso" />
-                                                <button type="submit" class="btn btn-outline-secondary"
+                                            <button type="submit" class="btn btn-outline-secondary"
                                                 :disabled="nomeNivel == null || (nomeModalidade !== 'EaD (100% ON-LINE)' && nomeCidade == null)">
                                                 <i class="bi bi-search"></i></button>
                                             <ul v-if="showOptions" class="curso-options">
@@ -125,6 +128,15 @@
             </div>
             <!-- ================= -->
             <section class="container">
+                <section v-if="semResultado">
+                    <div class="row py-4">
+                        <div class="noResult col-md-12 text-center">
+                            <h1><i class="bi bi-emoji-astonished"></i></h1>
+                            <h2>Lamentamos, mas não temos disponível no momento.</h2>
+                            <p>Aqui estão algumas excelentes alternativas que podem ser do seu interesse.</p>
+                        </div>
+                    </div>
+                </section>
                 <div class="row">
                     <!-- {{ resposta.ies }} -->
                     <div class="col-md-12">
@@ -298,11 +310,11 @@ export default defineComponent({
             const paginationStore = usePaginationStore();
             paginationStore.filtroTurno(opcao);
         },
-        filtroValorMenor(){
+        filtroValorMenor() {
             const paginationStore = usePaginationStore();
             paginationStore.filtroValorMenor();
         },
-        filtroValorMaior(){
+        filtroValorMaior() {
             const paginationStore = usePaginationStore();
             paginationStore.filtroValorMaior();
         },
@@ -314,7 +326,7 @@ export default defineComponent({
                 maximumFractionDigits: 2,
             });
         },
-        abrirCurso(id){
+        abrirCurso(id) {
             window.open('https://inscricao.educacoes.com.br/inscricao/' + id);
         },
         formatarData(data) {
@@ -389,12 +401,13 @@ export default defineComponent({
         resultadosEncontrados() {
             const paginationStore = usePaginationStore();
             return paginationStore.cursoExibido.length;
-        }
+        },
     },
     setup() {
         const myStore = cursoStore(pinia);
         const resposta = ref([]);
         const logos = ref([]);
+        const semResultado = ref([]);
         const paginationStore = usePaginationStore();
         const dataBusca = ref([]);
         const niveisEnsino = ref([]);
@@ -422,6 +435,8 @@ export default defineComponent({
             modalidades.value = myStore.Modalidades;
 
             dataBusca.value = myStore.pesquisaData;
+
+            semResultado.value = myStore.semResultado;
 
             paginationStore.cursoOriginal = resposta.value.cursos;
             paginationStore.cursoOriginal.sort(() => Math.random() - 0.5);
@@ -451,12 +466,13 @@ export default defineComponent({
             myStore.setCursos(data);
             localStorage.setItem('data', JSON.stringify(data));
             window.location.reload();
-            }
+        }
 
         return {
             resposta,
             logos,
             dataBusca,
+            semResultado,
             niveisEnsino,
             modalidades,
             turnos,

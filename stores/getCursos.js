@@ -9,6 +9,7 @@ const cursoStore = defineStore({
   state: () => ({
     resposta: null,
     response: null,
+    semResultado: false,
     Modalidades: [],
     areaConhecimento: [],
     Turnos: [],
@@ -22,23 +23,11 @@ const cursoStore = defineStore({
           try {
             const response = await api.post("cursos/cursos-e-instituicoes", data);
             if (response.data.cursos.length == 0) {
-              // Sem resultados aqui
-              data.nomeNivel = "GRADUAÇÃO"
-              data.nomeModalidade = "EaD (POLO)"
-
-              const NewData = {
-                "nomeArea": "",
-                "nomeCidade": "",
-                "areaConhecimento": "",
-                "nomeCurso": "",
-                "nomeEstado": "",
-                "nomeModalidade": data.nomeModalidade,
-                "nomeNivel": data.nomeNivel,
-                "nomeTurno": "",
-              }
-              const response = await api.post("cursos/cursos-e-instituicoes", NewData);
+              this.semResultado = true;
+              const response = await api.post("cursos/cursos-por-campanha");
               this.resposta = response.data;
             } else {
+              this.semResultado = false;
               this.resposta = response.data;
             }
           } catch (error) {
