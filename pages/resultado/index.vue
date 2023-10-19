@@ -128,7 +128,7 @@
             </div>
             <!-- ================= -->
             <section class="container">
-                <section v-if="semResultado">
+                <section v-if="semResultado===true">
                     <div class="row py-4">
                         <div class="noResult col-md-12 text-center">
                             <h1><i class="bi bi-emoji-astonished"></i></h1>
@@ -154,7 +154,9 @@
                     <!-- {{ paginatedItems }} -->
                     <div class="row">
                         <div class="custom-card col-md-4 card m-2" v-for="(result, index) in paginatedItems" :key="index"
-                            @click="abrirCurso(result.id_curso)">
+                            @click="abrirCurso(result.id_curso)"
+                            :class="result.valor_porcentagem > 0 ? 'campanha' : ''"
+                            >
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-5 profile-image">
