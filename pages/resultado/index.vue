@@ -211,7 +211,7 @@
                                             formatarData(result.previsao_inicio) }}</p>
                                     </div>
                                 </div>
-                                <div class="row mt-1">
+                                <div class="row mt-1 mb-2">
                                     <div class="col-md-12 text-center">
                                         <p class="text-secondary" v-if="result.reserva === 1">
                                             <i class="bi bi-paperclip"></i> Curso em cadastro reserva
