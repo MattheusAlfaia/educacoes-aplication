@@ -10,10 +10,16 @@
             </div>
         </div>
 
-        <div class="container box-content justify p-4 rounded mt-2">
+        <div class="container box-content justify p-4 rounded mt-2 mb-5">
+            <h4 class="d-flex justify-content-center mb-4">Edital</h4>
+            <h4 class="d-flex justify-content-center mb-4">
+                <a href="https://portal.educacoes.com.br/wp-content/uploads/2023/01/EDITAL_2023.1-EDUCA%C3%87%C3%83O-B%C3%81SICA-E-EDUCA%C3%87%C3%83O-SUPERIOR.pdf" target="_blank">
+                    Edital 2022/1 - Educação Básica e Ensino Superior
+                </a>
+            </h4>
             <h4 class="d-flex justify-content-center">
-                <a href="https://portal.educacoes.com.br/wp-content/uploads/2023/01/EDITAL_2023.1-EDUCAÇÃO-BÁSICA-E-EDUCAÇÃO-SUPERIOR.pdf" target="_blank">
-                    Edital 2023/1 – Educação Básica e Educação Superior
+                <a href="#" target="">
+                    Edital 2022/1 - Ensino Superior
                 </a>
             </h4>
         </div>
