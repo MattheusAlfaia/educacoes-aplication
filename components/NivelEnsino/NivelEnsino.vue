@@ -26,7 +26,7 @@
       <div class="rounded">
         <!-- :style="{ backgroundColor: icons[activeIndex].background }" -->
         <div class="gww">
-          Você está pesquisando em {{ icons[activeIndex].name }}
+          Você está pesquisando em {{ icons[activeIndex].name }} 
         </div>
       </div>
     </div>

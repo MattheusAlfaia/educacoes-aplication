@@ -39,7 +39,8 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
-                            <button type="submit" class="btn btn-custom">Buscar</button>
+                            <button type="submit" class="btn btn-custom"
+                            :disabled="!nomeModalidade || !cidade || !curso">Buscar</button>
                         </div>
                     </div>
                 </div>
@@ -71,7 +72,8 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
-                            <button type="submit" class="btn btn-custom">Buscar</button>
+                            <button type="submit" class="btn btn-custom"
+                            :disabled="!cidade || !area">Buscar</button>
                         </div>
                     </div>
                 </div>
@@ -103,7 +105,9 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
-                            <button type="submit" class="btn btn-custom">Buscar</button>
+                            <button type="submit" class="btn btn-custom"
+                            :disabled="!cidade || !AnoEscolar"
+                            >Buscar</button>
                         </div>
                     </div>
                 </div>
@@ -135,7 +139,9 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
-                            <button type="submit" class="btn btn-custom">Buscar</button>
+                            <button type="submit" class="btn btn-custom"
+                            :disabled="!nomeModalidade || !cidade"
+                            >Buscar</button>
                         </div>
                     </div>
                 </div>
@@ -175,7 +181,9 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
-                            <button type="submit" class="btn btn-custom">Buscar</button>
+                            <button type="submit" class="btn btn-custom"
+                            :disabled="!nomeModalidade || !cidade || !curso"
+                            >Buscar</button>
                         </div>
                     </div>
                 </div>
@@ -207,7 +215,9 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
-                            <button type="submit" class="btn btn-custom">Buscar</button>
+                            <button type="submit" class="btn btn-custom"
+                            :disabled="!nomeModalidade || !cidade"
+                            >Buscar</button>
                         </div>
                     </div>
                 </div>
@@ -247,7 +257,9 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
-                            <button type="submit" class="btn btn-custom">Buscar</button>
+                            <button type="submit" class="btn btn-custom"
+                            :disabled="!nomeModalidade || !cidade || !curso"
+                            >Buscar</button>
                         </div>
                     </div>
                 </div>
@@ -279,7 +291,9 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
-                            <button type="submit" class="btn btn-custom">Buscar</button>
+                            <button type="submit" class="btn btn-custom"
+                            :disabled="!nomeModalidade || !cidade"
+                            >Buscar</button>
                         </div>
                     </div>
                 </div>
@@ -311,7 +325,9 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
-                            <button type="submit" class="btn btn-custom">Buscar</button>
+                            <button type="submit" class="btn btn-custom"
+                            :disabled="!nomeModalidade || !cidade"
+                            >Buscar</button>
                         </div>
                     </div>
                 </div>
@@ -339,7 +355,9 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
-                            <button type="submit" class="btn btn-custom">Buscar</button>
+                            <button type="submit" class="btn btn-custom"
+                            :disabled="!nomeModalidade || !area"
+                            >Buscar</button>
                         </div>
                     </div>
                 </div>
@@ -367,7 +385,9 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
-                            <button type="submit" class="btn btn-custom">Buscar</button>
+                            <button type="submit" class="btn btn-custom"
+                            :disabled="!nomeModalidade || !area"
+                            >Buscar</button>
                         </div>
                     </div>
                 </div>
