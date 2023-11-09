@@ -6,7 +6,7 @@ services:
   my-app-dev:
     build:
       context: .
-      dockerfile: ./Dockerfile.dev
+      dockerfile: ./dockerfile
     ports:
       - "3000:3000"
       - "24678:24678"
