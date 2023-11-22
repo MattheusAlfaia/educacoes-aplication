@@ -16,7 +16,7 @@
                         </div>
                         <div class="col-lg-6">
                             <label for="cidade" class="form-label">Cidade:</label>
-                            <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
+                            <input type="text" class="form-control" id="cidade" autocomplete="off" aria-describedby="cidade" v-model="cidade"
                                 @input="fetchEndereco">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
@@ -28,7 +28,7 @@
                     <div class="row">
                         <div class="col-lg-12 mb-3">
                             <label for="curso" class="form-label">Curso:</label>
-                            <input type="text" id="curso" class="form-control" placeholder="Digite o nome do curso"
+                            <input type="text" id="curso" class="form-control" autocomplete="off" placeholder="Digite o nome do curso"
                                 aria-label="Digite o nome do curso" v-model="curso" @input="fetchOptions" />
                         </div>
                         <ul v-if="showOptions" class="curso-options">
