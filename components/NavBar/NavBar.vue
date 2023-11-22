@@ -62,7 +62,7 @@
 </template>
     
 <script>
-import logo from '../assets/images/logo.jpeg'
+import logo from '../assets/images/logo.png'
 
 export default {
   name: 'NavBar',
@@ -77,7 +77,7 @@ export default {
     reloadLogo() {
       this.logoLoaded = false;
       this.$nextTick(() => {
-        this.logo = require('../assets/images/logo.jpeg');
+        this.logo = require('../assets/images/logo.png');
       });
     }
   },

@@ -19,7 +19,6 @@ import 'vue3-carousel/dist/carousel.css'
 import slide1 from '@/assets/images/slides/slide1.png';
 import slide2 from '@/assets/images/slides/slide2.png';
 import slide3 from '@/assets/images/slides/slide3.png';
-
 export default defineComponent({
   name: 'BannerSlides',
   components: {
