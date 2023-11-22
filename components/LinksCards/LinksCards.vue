@@ -21,7 +21,7 @@
                         <div class="icon mb-1">
                             <i class="bi bi-award-fill"></i>
                         </div>
-                        Atualização de Bolsa
+                        Renove a sua Bolsa
                     </div>
                 </a>
             </div>

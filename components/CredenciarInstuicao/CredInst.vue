@@ -1,10 +1,10 @@
 <template>
     <div class="container">
-        <a class="link" href="https://www.educacoes.com.br/#/seja-parceiro">
+        <a class="link" href="https://www.educacoes.com.br/seja-parceiro">
         <div class="courses-container">
             <div class="course">
                     <div class="course-info">
-                        <h6>Dê um passo em direção ao futuro</h6>
+                        <h6>EDUCAR PARA DESENHAR O FUTURO</h6>
                         <h2>Credencie sua instituição.</h2>
                     </div>
                 </div>
