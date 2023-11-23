@@ -830,8 +830,7 @@ export default {
 
 .cidade-options {
     position: absolute;
-    background-color: #fff;
-    width: 13rem;
+    background-color: #FFF;
     max-height: 200px;
     overflow-y: auto;
     border: 1px solid #ccc;
@@ -840,8 +839,14 @@ export default {
     margin: 0;
     list-style: none;
     z-index: 10;
+    width: 100%;
+    @media (max-width: 980px) {
+        width: 46.5%;
+    }
+
 
     li {
+        width: 100%;
         color: #000;
         padding: 0.5rem;
         cursor: pointer;
