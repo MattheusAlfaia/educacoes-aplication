@@ -346,7 +346,7 @@
                     <div class="row mb-4 mt-2">
                         <div class="col-lg-12">
                             <label for="form-select" class="form-label">Escolha a área de conhecimento desejada:</label>
-                            <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="area">npm
+                            <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="area">
                                 <option v-for="area in areaConhecimento" :key="area.id" :value="area.nome">
                                     {{ area.nome }}
                                 </option>

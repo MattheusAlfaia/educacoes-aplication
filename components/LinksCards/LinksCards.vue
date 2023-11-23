@@ -27,7 +27,7 @@
             </div>
 
             <div class="ag-courses_item">
-                <a href="https://www.educacoes.com.br/#/perguntas-frequentes" class="ag-courses-item_link">
+                <a href="https://www.educacoes.com.br/duvidas" class="ag-courses-item_link">
                     <div class="ag-courses-item_bg"></div>
                     <div class="ag-courses-item_title resp text-center">
                         <div class="icon mb-1">
