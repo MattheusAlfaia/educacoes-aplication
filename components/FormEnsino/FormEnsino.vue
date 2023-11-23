@@ -140,7 +140,7 @@
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
                             <button type="submit" class="btn btn-custom"
-                            :disabled="!nomeModalidade || !area"
+                            :disabled="!nomeModalidade || !cidade"
                             >Buscar</button>
                         </div>
                     </div>
@@ -776,9 +776,12 @@ export default {
     padding: 0 1rem;
 }
 
-.form-space {
+@media (max-width: 573px) {
+    .form-space {
     width: 90vw;
 }
+}
+
 .curso-options {
     position: absolute;
     background-color: #fff;
