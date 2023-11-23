@@ -24,6 +24,7 @@
                         Renove a sua Bolsa
                     </div>
                 </a>
+                
             </div>
 
             <div class="ag-courses_item">

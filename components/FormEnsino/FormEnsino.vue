@@ -83,7 +83,7 @@
                 <div class="form-group col-sm-6 col-lg-3 col-md-6">
                     <div class="row mb-2">
                         <div class="col-md-12 col-lg-12">
-                            <label for="cidade" class="form-label">Cidade:</label>
+                            <label for="cidade" class="form-label form-space">Cidade:</label>
                             <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
                                 @input="fetchEndereco" autocomplete="off">
                             <ul v-if="showLugar" class="cidade-options">
@@ -114,9 +114,9 @@
             </form>
             <!-- Idiomas -->
             <form v-if="indice === 3" @submit.prevent="idiomasSubmit">
-                <div class="form-group col-sm-12 col-lg-3 col-md-6">
+                <div class="form-group col-sm-6 col-lg-3 col-md-6">
                     <div class="row mb-2">
-                        <div class="col-lg-12">
+                        <div class="col-md-12 col-lg-12">
                             <label for="form-select" class="form-label">Selecione Modalidade:</label>
                             <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade">
                                 <option v-for="modalidade in modalidades" :key="modalidade.id" :value="modalidade.nome">
@@ -126,9 +126,9 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <div class="col-lg-12">
-                            <label for="cidade" class="form-label">Cidade:</label>
-                            <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
+                        <div class="col-md-12 col-lg-12">
+                            <label for="cidade" class="form-label form-space">Cidade:</label>
+                            <input type="text" class="form-control form-space" id="cidade" aria-describedby="cidade" v-model="cidade"
                                 @input="fetchEndereco" autocomplete="off">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
@@ -140,7 +140,7 @@
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
                             <button type="submit" class="btn btn-custom"
-                            :disabled="!nomeModalidade || !cidade"
+                            :disabled="!nomeModalidade || !area"
                             >Buscar</button>
                         </div>
                     </div>
@@ -203,8 +203,8 @@
                     </div>
                     <div class="row mb-4">
                         <div class="col-md-12 col-lg-12">
-                            <label for="cidade" class="form-label">Cidade:</label>
-                            <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
+                            <label for="cidade" class="form-label form-space">Cidade:</label>
+                            <input type="text" class="form-control form-space" id="cidade" aria-describedby="cidade" v-model="cidade"
                                 @input="fetchEndereco" autocomplete="off">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
@@ -279,8 +279,8 @@
                     </div>
                     <div class="row mb-4">
                         <div class="col-md-12 col-lg-12">
-                            <label for="cidade" class="form-label">Cidade:</label>
-                            <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
+                            <label for="cidade" class="form-label form-space">Cidade:</label>
+                            <input type="text" class="form-control form-space" id="cidade" aria-describedby="cidade" v-model="cidade"
                                 @input="fetchEndereco" autocomplete="off">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
@@ -313,8 +313,8 @@
                     </div>
                     <div class="row mb-4">
                         <div class="col-md-12 col-lg-12">
-                            <label for="cidade" class="form-label">Cidade:</label>
-                            <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
+                            <label for="cidade" class="form-label form-space">Cidade:</label>
+                            <input type="text" class="form-control form-space" id="cidade" aria-describedby="cidade" v-model="cidade"
                                 @input="fetchEndereco" autocomplete="off">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
@@ -330,7 +330,7 @@
                             >Buscar</button>
                         </div>
                     </div>
-                </div>
+                </div>  
             </form>
             <!-- mestrado -->
             <form v-if="indice === 9" @submit.prevent="mestradoSubmit">
@@ -774,6 +774,10 @@ export default {
     width: 100%;
     max-width: 1280px;
     padding: 0 1rem;
+}
+
+.form-space {
+    width: 90vw;
 }
 .curso-options {
     position: absolute;
