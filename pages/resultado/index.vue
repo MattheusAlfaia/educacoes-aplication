@@ -11,6 +11,20 @@
                                 {{ resultadosEncontrados }}
                             </span><a class="btn-limpar" @click="limparFiltros">LIMPAR FILTRO</a>
                         </p>
+                        <p class="busca" style="color: #50a4b1;" v-if="dataBusca.nomeNivel">
+                            Sua Busca: <span>
+                                {{ dataBusca.nomeNivel }},
+                            </span>
+                            <span v-if="dataBusca.nomeModalidade">
+                                {{ dataBusca.nomeModalidade }},
+                            </span>
+                            <span v-if="dataBusca.nomeCurso">
+                                {{ dataBusca.nomeCurso }},
+                            </span>
+                            <span v-if="dataBusca.nomeCidade">
+                                {{ dataBusca.nomeCidade }}.
+                            </span>
+                        </p>
                     </div>
                     <div class="col-sm-8 col-md-6 text-end">
                         <div class="dropdown">
