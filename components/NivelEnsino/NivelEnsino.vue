@@ -179,6 +179,7 @@
   $bg-noactive: #c5c8cd;
   
   .options {
+    //background: #0e5780; 
     background: transparent !important;
   }
   

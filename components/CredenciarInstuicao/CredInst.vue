@@ -5,7 +5,7 @@
             <div class="course">
                     <div class="course-info">
                         <h6>EDUCAR PARA DESENHAR O FUTURO</h6>
-                        <h2>Credencie sua instituição.</h2>
+                        <h2>Credencie sua instituição</h2>
                     </div>
                 </div>
             </div>
