@@ -13,16 +13,16 @@
                         </p>
                         <p class="busca" style="color: #50a4b1;" v-if="dataBusca.nomeNivel">
                             Sua Busca: <span>
-                                {{ dataBusca.nomeNivel }},
+                                {{ dataBusca.nomeNivel }}
                             </span>
                             <span v-if="dataBusca.nomeModalidade">
-                                {{ dataBusca.nomeModalidade }},
+                                - {{ dataBusca.nomeModalidade }}
                             </span>
                             <span v-if="dataBusca.nomeCurso">
-                                {{ dataBusca.nomeCurso }},
+                                - {{ dataBusca.nomeCurso }}
                             </span>
                             <span v-if="dataBusca.nomeCidade">
-                                {{ dataBusca.nomeCidade }}.
+                                - {{ dataBusca.nomeCidade }}.
                             </span>
                         </p>
                     </div>

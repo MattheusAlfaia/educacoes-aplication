@@ -282,8 +282,8 @@
       letter-spacing: 0.3px;
       font-weight: 600;
       margin-top: -1rem;
-      background: #cecece;
-      color: #128199;
+      background: #128199;
+      color: #ffffff;
       text-align: center;
       text-transform: uppercase;
       padding: 0.2rem;

@@ -62,7 +62,7 @@
                     </div>
                     <div class="row mb-2 mt-2 mb-4">
                         <div class="col-lg-12">
-                            <label for="form-select" class="form-label">Escolha a área de conhecimento desejada:</label>
+                            <label for="form-select" class="form-label">Selecione a área de conhecimento:</label>
                             <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="area">npm
                                 <option v-for="area in areaConhecimento" :key="area.id" :value="area.nome">
                                     {{ area.nome }}
@@ -80,10 +80,10 @@
             </form>
             <!-- EDUCAÇÃO BÁSICA -->
             <form v-if="indice === 2" @submit.prevent="educBasicaSubmit">
-                <div class="form-group col-sm-6 col-lg-3 col-md-6">
+                <div class="form-group col-lg-3">
                     <div class="row mb-2">
                         <div class="col-md-12 col-lg-12">
-                            <label for="cidade" class="form-label form-space">Cidade:</label>
+                            <label for="cidade" class="form-label">Cidade:</label>
                             <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
                                 @input="fetchEndereco" autocomplete="off">
                             <ul v-if="showLugar" class="cidade-options">
@@ -114,7 +114,7 @@
             </form>
             <!-- Idiomas -->
             <form v-if="indice === 3" @submit.prevent="idiomasSubmit">
-                <div class="form-group col-sm-6 col-lg-3 col-md-6">
+                <div class="form-group col-12">
                     <div class="row mb-2">
                         <div class="col-md-12 col-lg-12">
                             <label for="form-select" class="form-label">Selecione Modalidade:</label>
@@ -127,8 +127,8 @@
                     </div>
                     <div class="row mb-4">
                         <div class="col-md-12 col-lg-12">
-                            <label for="cidade" class="form-label form-space">Cidade:</label>
-                            <input type="text" class="form-control form-space" id="cidade" aria-describedby="cidade" v-model="cidade"
+                            <label for="cidade" class="form-label">Cidade:</label>
+                            <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
                                 @input="fetchEndereco" autocomplete="off">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
@@ -190,7 +190,7 @@
             </form>
             <!-- cursos pos-tecnicos -->
             <form v-if="indice === 5" @submit.prevent="cursosPosTecnico">
-                <div class="form-group col-sm-6 col-lg-3 col-md-6">
+                <div class="form-group col-12">
                     <div class="row mb-2">
                         <div class="col-md-12 col-lg-12">
                             <label for="form-select" class="form-label">Selecione Modalidade:</label>
@@ -203,8 +203,8 @@
                     </div>
                     <div class="row mb-4">
                         <div class="col-md-12 col-lg-12">
-                            <label for="cidade" class="form-label form-space">Cidade:</label>
-                            <input type="text" class="form-control form-space" id="cidade" aria-describedby="cidade" v-model="cidade"
+                            <label for="cidade" class="form-label">Cidade:</label>
+                            <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
                                 @input="fetchEndereco" autocomplete="off">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
@@ -266,7 +266,7 @@
             </form>
             <!-- curso supletivo -->
             <form v-if="indice === 7" @submit.prevent="supletivoSubmit">
-                <div class="form-group col-sm-6 col-lg-3 col-md-6">
+                <div class="form-group col-12">
                     <div class="row mb-2">
                         <div class="col-md-12 col-lg-12">
                             <label for="form-select" class="form-label">Selecione Modalidade:</label>
@@ -279,8 +279,8 @@
                     </div>
                     <div class="row mb-4">
                         <div class="col-md-12 col-lg-12">
-                            <label for="cidade" class="form-label form-space">Cidade:</label>
-                            <input type="text" class="form-control form-space" id="cidade" aria-describedby="cidade" v-model="cidade"
+                            <label for="cidade" class="form-label">Cidade:</label>
+                            <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
                                 @input="fetchEndereco" autocomplete="off">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
@@ -300,7 +300,7 @@
             </form>
             <!-- curso pré-vestibular -->
             <form v-if="indice === 8" @submit.prevent="preVestibularSubmit">
-                <div class="form-group col-sm-6 col-lg-3 col-md-6">
+                <div class="form-group col-12">
                     <div class="row mb-2">
                         <div class="col-md-12 col-lg-12">
                             <label for="form-select" class="form-label">Selecione Modalidade:</label>
@@ -313,8 +313,8 @@
                     </div>
                     <div class="row mb-4">
                         <div class="col-md-12 col-lg-12">
-                            <label for="cidade" class="form-label form-space">Cidade:</label>
-                            <input type="text" class="form-control form-space" id="cidade" aria-describedby="cidade" v-model="cidade"
+                            <label for="cidade" class="form-label">Cidade:</label>
+                            <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
                                 @input="fetchEndereco" autocomplete="off">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
@@ -345,7 +345,7 @@
                     </div>
                     <div class="row mb-4 mt-2">
                         <div class="col-lg-12">
-                            <label for="form-select" class="form-label">Escolha a área de conhecimento desejada:</label>
+                            <label for="form-select" class="form-label">Selecione a área de conhecimento:</label>
                             <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="area">
                                 <option v-for="area in areaConhecimento" :key="area.id" :value="area.nome">
                                     {{ area.nome }}
@@ -375,7 +375,7 @@
                     </div>
                     <div class="row mb-4 mt-2">
                         <div class="col-lg-12">
-                            <label for="form-select" class="form-label">Escolha a área de conhecimento desejada:</label>
+                            <label for="form-select" class="form-label">Selecione a área de conhecimento:</label>
                             <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="area">npm
                                 <option v-for="area in areaConhecimento" :key="area.id" :value="area.nome">
                                     {{ area.nome }}
@@ -769,17 +769,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.from-group{
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1280px;
-    padding: 0 1rem;
+@media (min-width: 573px) {
+    .form-group{
+        margin: 0 auto;
+        width: 50%;
+        max-width: 1280px;
+        padding: 0 1rem;
+    }
+
 }
 
 @media (max-width: 573px) {
-    .form-space {
-    width: 90vw;
-}
+    .form-group{
+        padding: 0 4rem;
+    }
 }
 
 .curso-options {
