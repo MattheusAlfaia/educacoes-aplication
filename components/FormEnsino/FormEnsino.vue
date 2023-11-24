@@ -851,10 +851,23 @@ export default {
     margin: 0;
     list-style: none;
     z-index: 10;
-    width: 100%;
-    @media (max-width: 980px) {
-        width: 46.5%;
+    width: 60%;
+
+    // para telas acima de 1280px
+    @media (min-width: 1280px) {
+        width: 23%;
+        li{
+            color: #128199;
+            width: 50%;
+        }
     }
+
+    // para telas abaixo de 765px
+    @media (max-width: 765px) {
+        width: 70%;
+        margin-left: 0.1rem;
+    }
+
 
 
     li {
@@ -868,14 +881,18 @@ export default {
         }
     }
 
-    @media (min-width: 1280px) {
-        // para maior que 1280px
-        width: 14%;
-    }
+    // @media (min-width: 1280px) {
+    //     // para maior que 1280px
+    //     // width: 14%;
+    //     li{
+    //         color: #128199;
+    //         width: 50%;
+    //     }
+    // }
 
-    @media (max-width: 765px) {
-        margin-left: 0.1rem;
-    }
+    // @media (max-width: 765px) {
+    //     margin-left: 0.1rem;
+    // }
 }
 
 .btn-custom {

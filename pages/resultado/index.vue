@@ -6,6 +6,87 @@
         <section class="mt-3 container">
         <!-- {{ resposta.ies }} -->
             <div class="row mb-2">
+                <div class="col-sm-4 col-md-6 text-start">
+                    <p class="result">
+                        Resultados: 
+                        <span id="resultado-contador">
+                            {{ resultadosEncontrados }}
+                        </span>
+                        <a class="btn-limpar" @click="limparFiltros">LIMPAR FILTRO</a>
+                    </p>
+                </div>
+                <div class="col-sm-8 col-md-6 text-md-end text-sm-start">
+                    <a class="btn-limpar dropdown dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">INSTITUIÇÃO</a>
+                        <ul class="dropdown-menu drop-ies">
+                            <li v-for="(result, index) in resposta.ies" :key="index">
+                                <a class="dropdown-item" :id="result.ies_id" name="ies_id" :value="result.ies_id" @click="filtroIdIes(result.ies_id)">
+                                    {{ result.ies_nome }}
+                                </a>
+                            </li>
+                        </ul>
+                    <a class="btn-limpar dropdown dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">TURNO</a>
+                    <ul class="dropdown-menu">
+                        <li v-for="(turno, index) in turnosExistentes" :key="index">
+                            <a class="dropdown-item" style="color: #50a4b1;" :id="turno.id" name="turno" :value="turno.nome" @click="filtroTurno(turno.nome)">
+                                {{ turno.nome }}
+                            </a>
+                        </li>
+                    </ul>
+                    <a class="btn-limpar dropdown dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">PREÇO</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" style="color: #50a4b1;" id="menorValor" name="menorValor" value="menorValor" @click="filtroValorMenor()">
+                                Menor Valor <i class="bi bi-arrow-down"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" id="maiorValor" style="color: #50a4b1;" name="maiorValor" value="maiorValor" @click="filtroValorMaior()">
+                                Maior Valor <i class="bi bi-arrow-up"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <p class="busca mt-3" style="color: #50a4b1;" v-if="dataBusca.nomeNivel">
+                        <span>
+                            {{ dataBusca.nomeNivel }}
+                        </span>
+                        <span v-if="dataBusca.nomeModalidade">
+                            - {{ dataBusca.nomeModalidade }}
+                        </span>
+                        <span v-if="dataBusca.nomeCurso">
+                            - {{ dataBusca.nomeCurso }}
+                        </span>
+                        <span v-if="dataBusca.nomeCidade">
+                            - {{ dataBusca.nomeCidade }}.
+                        </span>
+                    </p>
+                <!-- <div class="col-sm-8 col-md-6 text-end">
+                    <div class="dropdown">
+                        <button class="btn btn-filtro" type="button" id="filterDropdown" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-filter"></i>
+                        </button>
+                        <ul class="dropdown-menu menu-filtro" aria-labelledby="filterDropdown">
+                            <li>
+                                <input type="radio" id="menorValor" name="menorValor" value="menorValor"
+                                    @click="filtroValorMenor()" />
+                                <label for="menorValor">Menor Valor <i class="bi bi-arrow-down"></i></label>
+                            </li>
+                            <li>
+                                <input type="radio" id="maiorValor" name="maiorValor" value="maiorValor"
+                                    @click="filtroValorMaior()" />
+                                <label for="maiorValor">Maior Valor <i class="bi bi-arrow-up"></i></label>
+                            </li>
+                            <li v-for="(turno, index) in turnosExistentes" :key="index">
+                                <input type="radio" :id="turno.id" name="turno" :value="turno.nome"
+                                    @click="filtroTurno(turno.nome)" class="fturnos" />
+                                <label :for="turno.id">{{ turno.nome }}</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div> -->
+            </div>
+            <!-- <div class="row mb-2">
                 <div class="d-flex justify-content-between">
                     <div class="col-sm-4 col-md-6 text-start">
                         <p class="result">
@@ -13,14 +94,14 @@
                             <span id="resultado-contador">
                                 {{ resultadosEncontrados }}
                             </span><a class="btn-limpar" @click="limparFiltros">LIMPAR FILTRO</a>
-                            <!-- <a class="btn-limpar dropdown dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">INSTITUIÇÃO</a>
+                            <a class="btn-limpar dropdown dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">INSTITUIÇÃO</a>
                             <ul class="dropdown-menu">
                                 <li v-for="(result, index) in resposta.ies" :key="index">
                                     <a class="dropdown-item" :id="result.ies_id" name="ies_id" :value="result.ies_id" @click="filtroIdIes(result.ies_id)">
                                         {{ result.ies_nome }}
                                     </a>
                                 </li>
-                            </ul> -->
+                            </ul>
                         </p>
                         <p class="busca" style="color: #50a4b1;" v-if="dataBusca.nomeNivel">
                             Sua Busca: <span>
@@ -63,7 +144,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- ==================== -->
             <div class="accordion accordion-flush" id="formResultado">
                 <div class="accordion-item">
@@ -162,8 +243,8 @@
                         </div>
                     </div>
                 </section>
-                <div class="row">
                     <!-- {{ resposta.ies }} -->
+                <!-- <div class="row">
                     <div class="col-md-12">
                         <Carousel class="carousel_slide" v-bind="settings" :breakpoints="breakpoints">
                             <Slide v-for="(result, index) in resposta.ies" :key="index">
@@ -175,7 +256,7 @@
                             </template>
                         </Carousel>
                     </div>
-                </div>
+                </div> -->
             </section>
             <section class="mt-4">
                 <div class="col-md-12">
