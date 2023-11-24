@@ -9,8 +9,8 @@
 useSeoMeta({
   title: "INSTITUTO EDUCAÇÕES - Bolsas de Estudo",
   ogTitle: "INSTITUTO EDUCAÇÕES - Bolsas de Estudo",
-  description:
-    "Bolsas de estudo para educação básica, graduação, pós-graduação, cursos Técnicos, cursos livres, supletivo e idiomas.",
+  description: "Bolsas de estudo para educação básica, graduação, pós-graduação, cursos Técnicos, cursos livres, supletivo e idiomas.",
+  keywords: "Bolsas de estudo, educação básica, graduação, pós-graduação, cursos Técnicos, cursos livres, supletivo e idiomas.",
   ogUrl: "https://www.educacoes.com.br/",
   ogType: "website",
   ogSiteName: "Instituto Educações - Bolsas de Estudos",

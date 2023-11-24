@@ -244,7 +244,7 @@
                     </div>
                 </section>
                     <!-- {{ resposta.ies }} -->
-                <!-- <div class="row">
+                <div class="row">
                     <div class="col-md-12">
                         <Carousel class="carousel_slide" v-bind="settings" :breakpoints="breakpoints">
                             <Slide v-for="(result, index) in resposta.ies" :key="index">
@@ -256,7 +256,7 @@
                             </template>
                         </Carousel>
                     </div>
-                </div> -->
+                </div>
             </section>
             <section class="mt-4">
                 <div class="col-md-12">

@@ -114,7 +114,7 @@ export default defineComponent({
                 image: "https://adm.educacoes.com.br/storage/uploads/logo/CENTRO%20UNIVERSIT%c3%81RIO%20S%c3%83O%20LUCAS%20-%20JI%20PARAN%c3%81%20%20(RO).jpg"
             },
             // {
-            //     name: 'UNIBATA',
+            //     name: 'UNIBTA',
             //     image: "https://adm.educacoes.com.br/storage/uploads/logo/CENTRO%20UNIVERSIT%c3%81RIO%20UNIBTA%20DIGITAL%20%20-%20ALTA%20FLORESTA%20(SETOR%20E%20CENTRO).jpg"
             // },
             {
@@ -269,10 +269,10 @@ export default defineComponent({
                 name: 'MARTHA FALCAO IDIOMAS',
                 image: "https://adm.educacoes.com.br/storage/uploads/logo/MARTHA%20FALC%c3%83O%20-%20IDIOMAS.jpg"
             },
-            {
-                name: 'UNIBATA',
-                image: "https://adm.educacoes.com.br/storage/uploads/logo/OYA%20Educacional%20Eireli.vCENTRO%20UNIVERSIT%c3%81RIO%20UNIBTA%20DIGITAL%20(POLO%20VIRTUAL).bmp"
-            },
+            // {
+            //     name: 'UNIBTA',
+            //     image: "https://adm.educacoes.com.br/storage/uploads/logo/OYA%20Educacional%20Eireli.vCENTRO%20UNIVERSIT%c3%81RIO%20UNIBTA%20DIGITAL%20(POLO%20VIRTUAL).bmp"
+            // },
             {
                 name: 'PARAISO',
                 image: "https://adm.educacoes.com.br/storage/uploads/logo/PARAISO).BMP"
