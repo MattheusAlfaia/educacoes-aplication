@@ -4,12 +4,23 @@
     </div>
     <div v-else>
         <section class="mt-3 container">
+        <!-- {{ resposta.ies }} -->
             <div class="row mb-2">
                 <div class="d-flex justify-content-between">
                     <div class="col-sm-4 col-md-6 text-start">
-                        <p class="result">Resultados: <span id="resultado-contador">
+                        <p class="result">
+                            Resultados: 
+                            <span id="resultado-contador">
                                 {{ resultadosEncontrados }}
                             </span><a class="btn-limpar" @click="limparFiltros">LIMPAR FILTRO</a>
+                            <!-- <a class="btn-limpar dropdown dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">INSTITUIÇÃO</a>
+                            <ul class="dropdown-menu">
+                                <li v-for="(result, index) in resposta.ies" :key="index">
+                                    <a class="dropdown-item" :id="result.ies_id" name="ies_id" :value="result.ies_id" @click="filtroIdIes(result.ies_id)">
+                                        {{ result.ies_nome }}
+                                    </a>
+                                </li>
+                            </ul> -->
                         </p>
                         <p class="busca" style="color: #50a4b1;" v-if="dataBusca.nomeNivel">
                             Sua Busca: <span>
@@ -159,6 +170,9 @@
                                 <img class="carousel_item" @click="filtroIdIes(result.ies_id)"
                                     :src="urlLogos.url + result.logo" :alt="result.name" />
                             </Slide>
+                            <template #addons>
+                                <Navigation />
+                            </template>
                         </Carousel>
                     </div>
                 </div>

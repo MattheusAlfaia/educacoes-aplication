@@ -105,18 +105,18 @@ export default defineComponent({
                 name: 'CIEC',
                 image: "https://adm.educacoes.com.br/storage/uploads/logo/CENTRO%20INTEGRADO%20DE%20EDUCA%c3%87%c3%83O%20E%20CIDADANIA%20-%20CIEC.jpg"
             },
-            {
-                name: 'ETEP',
-                image: "https://adm.educacoes.com.br/storage/uploads/logo/CENTRO%20UNIVERSIT%c3%81RIO%20ETEP%20-%20POLO%20BOTUCATU%20(VILA%20PADOVAN)%20.bmp"
-            },
+            // {
+            //     name: 'ETEP',
+            //     image: "https://adm.educacoes.com.br/storage/uploads/logo/CENTRO%20UNIVERSIT%c3%81RIO%20ETEP%20-%20POLO%20BOTUCATU%20(VILA%20PADOVAN)%20.bmp"
+            // },
             {
                 name: 'SAO LUCAS',
                 image: "https://adm.educacoes.com.br/storage/uploads/logo/CENTRO%20UNIVERSIT%c3%81RIO%20S%c3%83O%20LUCAS%20-%20JI%20PARAN%c3%81%20%20(RO).jpg"
             },
-            {
-                name: 'UNIBATA',
-                image: "https://adm.educacoes.com.br/storage/uploads/logo/CENTRO%20UNIVERSIT%c3%81RIO%20UNIBTA%20DIGITAL%20%20-%20ALTA%20FLORESTA%20(SETOR%20E%20CENTRO).jpg"
-            },
+            // {
+            //     name: 'UNIBATA',
+            //     image: "https://adm.educacoes.com.br/storage/uploads/logo/CENTRO%20UNIVERSIT%c3%81RIO%20UNIBTA%20DIGITAL%20%20-%20ALTA%20FLORESTA%20(SETOR%20E%20CENTRO).jpg"
+            // },
             {
                 name: 'CETEC',
                 image: "https://adm.educacoes.com.br/storage/uploads/logo/CETEC%20-%20CENTRO%20DE%20FORMA%c3%87%c3%83O%20T%c3%89CNICA%20E%20PROFISSIONAL%20DE%20CACOAL%20.png"

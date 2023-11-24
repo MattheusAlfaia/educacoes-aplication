@@ -179,8 +179,10 @@
   $bg-noactive: #c5c8cd;
   
   .options {
-    //background: #0e5780; 
-    background: transparent !important;
+    background: #0a4161;
+    box-shadow: 0 0 2em rgba(0, 0, 0, .2);
+    padding: 1em 0em;
+    //background: transparent !important;
   }
   
   .card_options {
@@ -276,20 +278,20 @@
   
     .gww {
       width: 100%;
-      height: 1.5rem;
-      border-radius: 0.5rem 0.5rem 0 0;
-      font-size: 0.8rem;
+      height: 2rem;
+      font-size: 0.8em;
       line-height: 1.2;
       letter-spacing: 0.3px;
       font-weight: 600;
       margin-top: -1rem;
-      background: #128199;
-      color: #ffffff;
-      text-align: center;
+      background: #FDCF09;
+      color: #1a7b91;
       text-transform: uppercase;
       padding: 0.2rem;
-      // sombra
       box-shadow: 0 0 2em rgba(0, 0, 0, .2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
   </style>~/stores/PiniaStore

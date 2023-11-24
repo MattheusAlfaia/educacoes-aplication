@@ -1,14 +1,15 @@
 <template>
-    <section v-if="carregamento">
+    <!-- <section v-if="carregamento">
         <sloganHome />
-    </section>
-    <section v-else>
+    </section> -->
+    <section>
         <BannerSliders />
         <NivelEnsinoSlider />
         <InstituicoesParceiras />
         <CredenciarInstuicao />
         <LinksCards />
         <!-- <Convenios /> -->
+        <!-- <Depoimentos /> -->
         <VideoInstitucional />
     </section>
 </template>
@@ -21,6 +22,7 @@ import CredenciarInstuicao from '~/components/CredenciarInstuicao/CredInst.vue';
 import LinksCards from '~/components/LinksCards/LinksCards.vue';
 // import Convenios from '~/components/Convenios/Convenios.vue';
 import VideoInstitucional from '~/components/VideoInstitucional/VideoInstitucional.vue';
+// import Depoimentos from '~/components/Depoimentos/Depoimentos.vue';
 import sloganHome from '~/components/sloganCarregamento/sloganHome.vue';
 export default {
     name: 'Home',

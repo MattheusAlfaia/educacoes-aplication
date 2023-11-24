@@ -62,7 +62,7 @@
                     </div>
                     <div class="row mb-2 mt-2 mb-4">
                         <div class="col-lg-12">
-                            <label for="form-select" class="form-label">Selecione a área de conhecimento:</label>
+                            <label for="form-select" class="form-label">Selecione área:</label>
                             <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="area">npm
                                 <option v-for="area in areaConhecimento" :key="area.id" :value="area.nome">
                                     {{ area.nome }}
@@ -82,7 +82,7 @@
             <form v-if="indice === 2" @submit.prevent="educBasicaSubmit">
                 <div class="form-group col-lg-3">
                     <div class="row mb-2">
-                        <div class="col-md-12 col-lg-12">
+                        <div class="col-lg-12">
                             <label for="cidade" class="form-label">Cidade:</label>
                             <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
                                 @input="fetchEndereco" autocomplete="off">
@@ -92,6 +92,14 @@
                                 </li>
                             </ul>
                         </div>
+                        <!-- <div class="col-lg-6">
+                            <label for="form-select" class="form-label">Selecione a escola:</label>
+                            <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="instituicao">
+                                <option v-for="instituicao in instituicoes" :key="instituicao.id" :value="instituicao.nome">
+                                    {{ instituicao.nome }}
+                                </option>
+                            </select>
+                        </div> -->
                     </div>
                     <div class="row mb-4">
                         <div class="col-lg-12">
@@ -106,7 +114,7 @@
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
                             <button type="submit" class="btn btn-custom"
-                            :disabled="!cidade || !AnoEscolar"
+                            :disabled="!cidade"
                             >Buscar</button>
                         </div>
                     </div>
@@ -336,7 +344,7 @@
             <form v-if="indice === 9" @submit.prevent="mestradoSubmit">
                 <div class="form-group col-lg-3">
                     <div class="col-lg-12">
-                        <label for="form-select" class="form-label">Selecione Modalidade:</label>
+                        <label for="form-select" class="form-label">Selecione a Modalidade:</label>
                         <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade">
                             <option v-for="modalidade in modalidades" :key="modalidade.id" :value="modalidade.nome">
                                 {{ modalidade.nome }}
@@ -345,7 +353,7 @@
                     </div>
                     <div class="row mb-4 mt-2">
                         <div class="col-lg-12">
-                            <label for="form-select" class="form-label">Selecione a área de conhecimento:</label>
+                            <label for="form-select" class="form-label">Selecione a área:</label>
                             <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="area">
                                 <option v-for="area in areaConhecimento" :key="area.id" :value="area.nome">
                                     {{ area.nome }}
@@ -375,7 +383,7 @@
                     </div>
                     <div class="row mb-4 mt-2">
                         <div class="col-lg-12">
-                            <label for="form-select" class="form-label">Selecione a área de conhecimento:</label>
+                            <label for="form-select" class="form-label">Selecione a área</label>
                             <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="area">npm
                                 <option v-for="area in areaConhecimento" :key="area.id" :value="area.nome">
                                     {{ area.nome }}
@@ -780,15 +788,19 @@ export default {
 }
 
 @media (max-width: 573px) {
+    form{
+        padding-top: 1rem !important;
+        align-items: normal !important;
+    }
     .form-group{
-        padding: 0 4rem;
+        padding: 0 2rem;
     }
 }
 
 .curso-options {
     position: absolute;
     background-color: #fff;
-    width: 100%;
+    // width: 100%;
     max-height: 200px;
     overflow-y: auto;
     border: 1px solid #ccc;
@@ -809,22 +821,22 @@ export default {
     }
 
     @media (max-width: 512px) {
-        width: 90%;
+        width: 70%;
         margin-left: 1rem;
     }
 
     @media (min-width: 513px) {
         margin-left: 1rem;
-        width: 50%;
+        width: 85%;
     }
     @media (min-width: 910px) {
-        width: 40%;
+        width: 46%;
     }
     @media (min-width: 1140px) {
-        width: 30%;
+        width: 40%;
     }
     @media (min-width: 1280px) {
-        width: 24%;
+        width: 47%;
     }
 }
 
