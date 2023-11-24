@@ -105,6 +105,18 @@ export default defineComponent({
                 name: 'CIEC',
                 image: "https://adm.educacoes.com.br/storage/uploads/logo/CENTRO%20INTEGRADO%20DE%20EDUCA%c3%87%c3%83O%20E%20CIDADANIA%20-%20CIEC.jpg"
             },
+            {
+                 name: 'ETEP',
+                 image: "https://adm.educacoes.com.br/storage/uploads/logo/ETEP_novo.jpg"
+            },
+            {
+                 name: 'IVY ENBER',
+                 image: "https://adm.educacoes.com.br/storage/uploads/logo/IvyEnber_novo.jpg"
+            },
+            {
+                 name: 'UNIBTA',
+                 image: "https://adm.educacoes.com.br/storage/uploads/logo/UniBTA_novo.jpg"
+            },
             // {
             //     name: 'ETEP',
             //     image: "https://adm.educacoes.com.br/storage/uploads/logo/CENTRO%20UNIVERSIT%c3%81RIO%20ETEP%20-%20POLO%20BOTUCATU%20(VILA%20PADOVAN)%20.bmp"
