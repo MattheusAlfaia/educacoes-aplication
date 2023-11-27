@@ -1,39 +1,53 @@
 <template>
-  <Carousel
-    :items-to-show="2.5"
-    v-bind="settings"
-    :breakpoints="breakpoints"
-    :wrap-around="true"
-  >
-    <Slide v-for="slide in 5" :key="slide">
-      <div class="carousel__item">
-        <div class="body_item">
-          <div class="item-header">
-            <div class="avatar">
-              <img src="https://i.imgur.com/8Km9tLL.jpg" alt="Avatar" />
-            </div>
-            <div class="name">
-              <h4>John Doe</h4>
-              <p>Web Developer</p>
-            </div>
-          </div>
-          <div class="card-body">
+  <section class="testimonials">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-title text-center">
+            <h2>Feedbacks</h2>
             <p>
-              Eu nunca pensei que seria possível estudar em uma escola tão boa. A bolsa de
-              estudos me deu a oportunidade de ter acesso a uma educação de qualidade que
-              eu não poderia pagar de outra forma. Eu sou muito grata por ter recebido
-              essa bolsa e por ter a chance de estudar em uma escola que me desafia e me
-              ajuda a crescer como pessoa e como estudante.
+              Veja o que nossos alunos e parceiros estão falando sobre nós.
             </p>
           </div>
         </div>
       </div>
-    </Slide>
+    </div>
+    <Carousel
+      :items-to-show="2.5"
+      v-bind="settings"
+      :breakpoints="breakpoints"
+      :wrap-around="true"
+    >
+      <Slide v-for="slide in 5" :key="slide">
+        <div class="carousel__item">
+          <div class="body_item">
+            <div class="item-header">
+              <div class="avatar">
+                <img src="https://i.imgur.com/8Km9tLL.jpg" alt="Avatar" />
+              </div>
+              <div class="name">
+                <h4>John Doe</h4>
+                <p>Web Developer</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <p>
+                Eu nunca pensei que seria possível estudar em uma escola tão boa. A bolsa
+                de estudos me deu a oportunidade de ter acesso a uma educação de qualidade
+                que eu não poderia pagar de outra forma. Eu sou muito grata por ter
+                recebido essa bolsa e por ter a chance de estudar em uma escola que me
+                desafia e me ajuda a crescer como pessoa e como estudante.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Slide>
 
-    <template #addons>
-      <Navigation />
-    </template>
-  </Carousel>
+      <template #addons>
+        <Navigation />
+      </template>
+    </Carousel>
+  </section>
 </template>
 
 <script>
@@ -84,10 +98,14 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.testimonials {
+  background-color: #f5f5f5;
+  padding: 2rem 0;
+}
 .carousel__item {
   width: 25rem;
   height: 18rem;
-  background-color: #0e9f5b;
+  background-color: #37bec9;
   border-radius: 1rem;
   padding: 10px 1rem 0;
   margin: 0 1rem;
@@ -114,6 +132,12 @@ export default defineComponent({
   margin-bottom: 0.5rem;
 }
 
+.avatar{
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
 .name {
   margin-left: 1rem;
 }

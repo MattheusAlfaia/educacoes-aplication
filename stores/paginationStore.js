@@ -61,6 +61,7 @@ export const usePaginationStore = defineStore({
       this.filterTurnoIes = 1;
       this.itemFiltrado = this.cursoOriginal.filter((curso) => curso.ies_id == ies_id);
       if (this.itemFiltrado.length > 0) {
+        // filtrar nome dessa instituição
         this.filtroOriginal = this.itemFiltrado;
         this.cursoExibido = this.itemFiltrado;
       }

@@ -30,6 +30,8 @@ const cursoStore = defineStore({
               this.semResultado = false;
               this.resposta = response.data;
             }
+            console.log("Vindo da API:");
+            console.log(this.resposta);
           } catch (error) {
             console.error("Erro ao obter os cursos:", error);
           }

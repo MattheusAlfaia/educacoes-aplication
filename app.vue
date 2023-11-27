@@ -1,7 +1,9 @@
 <!-- carregar o NavBar e rederizar as páginas -->
 <template>
   <NavBar />
-  <NuxtPage />
+  <div class="out">
+    <NuxtPage />
+    </div>
   <FooterPage />
 </template>
 
@@ -22,3 +24,10 @@ useSeoMeta({
 import NavBar from "~/components/NavBar/NavBar.vue";
 import FooterPage from "./components/Footer/FooterPage.vue";
 </script>
+
+
+<style scoped>
+.out{
+    background-color: #FFF;
+}
+</style>

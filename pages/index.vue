@@ -2,8 +2,8 @@
     <!-- <section v-if="carregamento">
         <sloganHome />
     </section> -->
-    <section>
         <BannerSliders />
+    <section class="container">
         <NivelEnsinoSlider />
         <InstituicoesParceiras />
         <CredenciarInstuicao />
@@ -48,3 +48,9 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+.container{
+    background-color: #FFF;
+}
+</style>

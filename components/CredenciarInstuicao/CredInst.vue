@@ -22,6 +22,7 @@ export default {
 <style lang="scss" scoped>
 .container {
     margin-top: 5rem;
+    margin-bottom: 2rem;
 }
 
 .courses-container {
@@ -42,10 +43,25 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1.5rem;
+    padding: 1.8rem;
     max-width: 100%;
     overflow: hidden;
     width: 90%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.course:hover {
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02);
+    background: url(../../assets/images/parceria.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    opacity: 0.8;
+    transition: all 0.3s ease;
 }
 
 .course-info {

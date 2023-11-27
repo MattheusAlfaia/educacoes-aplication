@@ -3,8 +3,7 @@
     <nav class="navbar navbar-expand-lg bg-white">
       <div class="container">
         <a class="navbar-brand" :href="link">
-          <!-- Use um atributo onload para controlar o carregamento da imagem -->
-          <img :src="logo" alt="logo" width="120px" @load="logoLoaded = true">
+          <img :src="logo" alt="logo" width="150px" @load="logoLoaded = true">
         </a>
         <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">

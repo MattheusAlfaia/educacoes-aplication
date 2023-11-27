@@ -18,7 +18,7 @@
         </Slide>
   
         <template #addons>
-          <Navigation style="background: #084c80; color: #FFF; border-radius: 1rem;" />
+          <Navigation />
         </template>
   
       </Carousel>

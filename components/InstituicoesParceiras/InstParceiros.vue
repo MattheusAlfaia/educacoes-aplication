@@ -1,6 +1,6 @@
 <template>
     <div class="mt-3 mb-2">
-        <h3 class="text-center text-instituicao fw-2">Instituições Parceiras</h3>
+        <h2 class="text-center text-instituicao fw-2">Instituições Parceiras</h2>
         <!-- {{ Logos }} -->
     </div>
     <Carousel class="parceiros" v-bind="settings" :breakpoints="breakpoints" :wrap-around="true" :transition="1800"
@@ -392,8 +392,11 @@ export default defineComponent({
 
 .text-instituicao {
     color: #084c80;
-    font-size: 1.5em;
+    font-size: 1.8em;
     font-weight: bold;
+    text-align: center;
+    margin-top: 1.5em;
+    text-transform: uppercase;
 }
 
 .card-instituicao {
