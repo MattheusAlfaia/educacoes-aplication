@@ -397,6 +397,9 @@ export default defineComponent({
     text-align: center;
     margin-top: 1.5em;
     text-transform: uppercase;
+    @media (max-width: 750px) {
+        font-size: 1.3em;
+    }
 }
 
 .card-instituicao {

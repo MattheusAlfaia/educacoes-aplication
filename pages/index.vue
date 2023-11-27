@@ -2,8 +2,8 @@
     <!-- <section v-if="carregamento">
         <sloganHome />
     </section> -->
-        <BannerSliders />
     <section class="container">
+        <BannerSliders />
         <NivelEnsinoSlider />
         <InstituicoesParceiras />
         <CredenciarInstuicao />
