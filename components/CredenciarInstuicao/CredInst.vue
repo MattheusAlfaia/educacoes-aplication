@@ -46,7 +46,7 @@ export default {
     padding: 1.8rem;
     max-width: 100%;
     overflow: hidden;
-    width: 90%;
+    width: 98%;
     transition: all 0.3s ease;
     cursor: pointer;
 }
