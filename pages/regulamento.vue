@@ -39,7 +39,7 @@ export default {
         }
 
         .jumbotron {
-            background-image: url(@/assets/images/pexels-edital.jpg);
+            background-image: url(@/assets/images/pexels-edital.webp);
             background-position: center;
             background-size: cover;
             height: 100%;
