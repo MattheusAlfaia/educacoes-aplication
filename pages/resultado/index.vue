@@ -19,7 +19,8 @@
                     <a class="btn-limpar dropdown dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">INSTITUIÇÃO</a>
                         <ul class="dropdown-menu drop-ies">
                             <li v-for="(result, index) in resposta.ies" :key="index">
-                                <a class="dropdown-item" :id="result.ies_id" name="ies_id" :value="result.ies_id" @click="filtroIdIes(result.ies_id)">
+                                <a class="dropdown-item" :id="result.ies_id" name="ies_id" :value="result.ies_id" @click="filtroIdIes(result.ies_id, result.ies_nome)"
+                                    :class="result.ies_nome == filtro ? 'selected_ies' : '' ">
                                     {{ result.ies_nome }}
                                 </a>
                             </li>
@@ -27,7 +28,9 @@
                     <a class="btn-limpar dropdown dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">TURNO</a>
                     <ul class="dropdown-menu">
                         <li v-for="(turno, index) in turnosExistentes" :key="index">
-                            <a class="dropdown-item" style="color: #50a4b1;" :id="turno.id" name="turno" :value="turno.nome" @click="filtroTurno(turno.nome)">
+                            <a class="dropdown-item" style="color: #50a4b1;" :id="turno.id" name="turno" :value="turno.nome" @click="filtroTurno(turno.nome)"
+                                :class="turno.nome == dataBusca.nomeTurno ? 'selected_turno' : '' "
+                            >
                                 {{ turno.nome }}
                             </a>
                         </li>
@@ -35,12 +38,16 @@
                     <a class="btn-limpar dropdown dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">PREÇO</a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" style="color: #50a4b1;" id="menorValor" name="menorValor" value="menorValor" @click="filtroValorMenor()">
+                            <a class="dropdown-item" style="color: #50a4b1;" id="menorValor" name="menorValor" value="menorValor" @click="filtroValorMenor()"
+                                :class="dataBusca.nomeValor == 'menorValor' ? 'selected_valor' : '' "
+                            >
                                 Menor Valor <i class="bi bi-arrow-down"></i>
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" id="maiorValor" style="color: #50a4b1;" name="maiorValor" value="maiorValor" @click="filtroValorMaior()">
+                            <a class="dropdown-item" id="maiorValor" style="color: #50a4b1;" name="maiorValor" value="maiorValor" @click="filtroValorMaior()"
+                                :class="dataBusca.nomeValor == 'maiorValor' ? 'selected_valor' : '' "
+                            >
                                 Maior Valor <i class="bi bi-arrow-up"></i>
                             </a>
                         </li>
@@ -248,13 +255,19 @@
                     <div class="col-md-12">
                         <Carousel class="carousel_slide" v-bind="settings" :breakpoints="breakpoints">
                             <Slide v-for="(result, index) in resposta.ies" :key="index">
-                                <img class="carousel_item" @click="filtroIdIes(result.ies_id)"
+                                <img class="carousel_item" @click="filtroIdIes(result.ies_id, result.ies_nome)"
                                     :src="urlLogos.url + result.logo" :alt="result.name" />
                             </Slide>
                             <template #addons>
                                 <Navigation />
                             </template>
                         </Carousel>
+                    </div>
+                </div>
+
+                <div class="row" v-if="filtro">
+                    <div class="col-12">
+                        <p class="text-center text-muted">RESULTADOS DE: {{ filtro }}</p>
                     </div>
                 </div>
             </section>
@@ -264,8 +277,7 @@
                     <div class="row">
                         <div class="custom-card col-md-4 card m-2" v-for="(result, index) in paginatedItems" :key="index"
                             @click="abrirCurso(result.id_curso)"
-                            :class="result.valor_porcentagem > 0 ? 'campanha' : ''"
-                            >
+                            :class="result.valor_porcentagem > 0 ? 'campanha' : ''">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-5 profile-image">
@@ -374,6 +386,7 @@ export default defineComponent({
         cursos: [],
         endereco: [],
         resposta_original: [],
+        filtro: null,
         urlLogos: {
             url: 'https://adm.educacoes.com.br/storage/uploads/logo/',
         },
@@ -405,9 +418,10 @@ export default defineComponent({
             paginationStore.setPage(page);
             window.scrollTo(0, 0);
         },
-        filtroIdIes(ies_id) {
+        filtroIdIes(ies_id, nomeIes) {
             const paginationStore = usePaginationStore();
             paginationStore.filtroIdIes(ies_id);
+            this.filtro = nomeIes;
         },
         limparFiltros() {
             const paginationStore = usePaginationStore();
@@ -416,6 +430,7 @@ export default defineComponent({
             for (var i = 0; i < radios.length; i++) {
                 radios[i].checked = false;
             }
+            this.filtro = null;
         },
         filtroTurno(opcao) {
             const paginationStore = usePaginationStore();

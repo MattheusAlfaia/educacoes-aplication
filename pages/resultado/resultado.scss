@@ -43,6 +43,39 @@
             box-shadow: none !important;
         }
     }
+
+    .selected_ies{
+        background-color: #50a4b1;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        padding: 0.5rem;
+        :focus {
+            box-shadow: none !important;
+        }
+    }
+
+    .selected_turno{
+        background-color: #50a4b1;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        padding: 0.5rem;
+        :focus {
+            box-shadow: none !important;
+        }
+    }
+
+    .selected_valor{
+        background-color: #50a4b1;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        padding: 0.5rem;
+        :focus {
+            box-shadow: none !important;
+        }
+    }
 }
 
 .menu-filtro {
@@ -209,10 +242,31 @@
     }
 
     .beneficio {
+        width: 100%;
+        height: 2rem;
+        background-color: #fdd73b;
+        color: #fff;
         margin-right: 0.5rem;
-        color: #ffae10;
         font-size: 1rem;
         font-weight: bold;
+        border-radius: 10px;
+        padding: 0.2rem 0.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: pulse 3s infinite;
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
     }
 
     .profile-image {
