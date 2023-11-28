@@ -54,7 +54,7 @@ export default {
 .course:hover {
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
     transform: scale(1.02);
-    background: url(../../assets/images/parceria.jpg);
+    background: url(../../assets/images/parceria.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

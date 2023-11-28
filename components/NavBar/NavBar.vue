@@ -61,7 +61,7 @@
 </template>
     
 <script>
-import logo from '../assets/images/logo.png'
+import logo from '../assets/images/logo.webp'
 
 export default {
   name: 'NavBar',
@@ -76,7 +76,7 @@ export default {
     reloadLogo() {
       this.logoLoaded = false;
       this.$nextTick(() => {
-        this.logo = require('../assets/images/logo.png');
+        this.logo = require('../assets/images/logo.webp');
       });
     }
   },

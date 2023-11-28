@@ -155,13 +155,13 @@
                 </p>
                 <div class="row justify-content-center align-items-center mb-4">
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_7.jpg" width="100%" height="auto" alt="Image">
+                        <img src="@/assets/images/sejaParceiro/instituto_7.webp" width="100%" height="auto" alt="Image">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_8.jpg" width="100%" height="auto" alt="Image">
+                        <img src="@/assets/images/sejaParceiro/instituto_8.webp" width="100%" height="auto" alt="Image">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_9.jpg" width="100%" height="auto" alt="Image">
+                        <img src="@/assets/images/sejaParceiro/instituto_9.webp" width="100%" height="auto" alt="Image">
                     </div>
                 </div>
 
@@ -206,10 +206,10 @@
                 </p>
                 <div class="row justify-content-center align-items-center mb-4">
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_10.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_10.webp" width="100%" height="auto">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_12.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_12.webp" width="100%" height="auto">
                     </div>
                 </div>
 
@@ -241,10 +241,10 @@
                 </p>
                 <div class="row justify-content-center align-items-center mb-4">
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_13.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_13.webp" width="100%" height="auto">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_14.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_14.webp" width="100%" height="auto">
                     </div>
                 </div>
 
@@ -266,22 +266,22 @@
                 </p>
                 <div class="row justify-content-center align-items-center mb-4">
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_15.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_15.webp" width="100%" height="auto">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_16.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_16.webp" width="100%" height="auto">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_17.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_17.webp" width="100%" height="auto">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_18.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_18.webp" width="100%" height="auto">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_19.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_19.webp" width="100%" height="auto">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_20.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_20.webp" width="100%" height="auto">
                     </div>
                 </div>
 
@@ -298,22 +298,22 @@
                 </p>
                 <div class="row justify-content-center align-items-center mb-4">
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_21.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_21.webp" width="100%" height="auto">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_22.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_22.webp" width="100%" height="auto">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_23.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_23.webp" width="100%" height="auto">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_24.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_24.webp" width="100%" height="auto">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_25.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_25.webp" width="100%" height="auto">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_26.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_26.webp" width="100%" height="auto">
                     </div>
                 </div>
 
@@ -323,22 +323,22 @@
                 <div class="mt-2"></div>
                 <div class="row justify-content-center align-items-center mb-4">
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_27.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_27.webp" width="100%" height="auto">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_28.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_28.webp" width="100%" height="auto">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_29.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_29.webp" width="100%" height="auto">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_30.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_30.webp" width="100%" height="auto">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_31.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_31.webp" width="100%" height="auto">
                     </div>
                     <div class="col-md-4 mt-3">
-                        <img src="@/assets/images/sejaParceiro/instituto_32.jpg" width="100%" height="auto">
+                        <img src="@/assets/images/sejaParceiro/instituto_32.webp" width="100%" height="auto">
                     </div>
                 </div>
 
@@ -376,7 +376,7 @@ export default {
     }
 
     .jumbotron {
-        background-image: url(@/assets/images/sejaParceiro/pexels-parceria.jpg);
+        background-image: url(@/assets/images/sejaParceiro/pexels-parceria.webp);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
