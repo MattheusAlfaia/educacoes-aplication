@@ -2,6 +2,7 @@
     <!-- <section v-if="carregamento">
         <sloganHome />
     </section> -->
+    <!-- <ChatPopup /> -->
     <section class="container">
         <BannerSliders />
         <NivelEnsinoSlider />
@@ -23,6 +24,7 @@ import LinksCards from '~/components/LinksCards/LinksCards.vue';
 // import Convenios from '~/components/Convenios/Convenios.vue';
 import VideoInstitucional from '~/components/VideoInstitucional/VideoInstitucional.vue';
 // import Depoimentos from '~/components/Depoimentos/Depoimentos.vue';
+import ChatPopup from '~/components/ChatPopup/ChatPopup.vue';
 import sloganHome from '~/components/sloganCarregamento/sloganHome.vue';
 export default {
     name: 'Home',

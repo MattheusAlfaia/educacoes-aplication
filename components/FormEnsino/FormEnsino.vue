@@ -7,7 +7,7 @@
                         <div class="col-lg-6">
                             <label for="form-select" class="form-label">Selecione Modalidade:</label>
                             <select id="Select" class="form-select" placeholder="Digite a Modalidade"
-                                v-model="nomeModalidade">
+                                v-model="nomeModalidade" :class="{ 'invalid_input': !nomeModalidade }">
                                 <option disabled="disabled" value="">Selecione o Modalidade</option>
                                 <option v-for="modalidade in modalidades" :key="modalidade.id" :value="modalidade.nome">
                                     {{ modalidade.nome }}
@@ -17,7 +17,7 @@
                         <div class="col-lg-6">
                             <label for="cidade" class="form-label">Cidade:</label>
                             <input type="text" class="form-control" id="cidade" autocomplete="off" aria-describedby="cidade" v-model="cidade"
-                                @input="fetchEndereco">
+                            :class="{ 'invalid_input': !cidade }" @input="fetchEndereco">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
                                     {{ option.nome }}
@@ -29,7 +29,7 @@
                         <div class="col-lg-12 mb-3">
                             <label for="curso" class="form-label">Curso:</label>
                             <input type="text" id="curso" class="form-control" autocomplete="off" placeholder="Digite o nome do curso"
-                                aria-label="Digite o nome do curso" v-model="curso" @input="fetchOptions" />
+                                aria-label="Digite o nome do curso" v-model="curso" @input="fetchOptions" :class="{ 'invalid_input': !curso }" />
                         </div>
                         <ul v-if="showOptions" class="curso-options">
                             <li v-for="option in options" :key="option.id" @click="selectOption(option)">
@@ -52,7 +52,7 @@
                         <div class="col-md-12 col-lg-12">
                             <label for="cidade" class="form-label">Cidade:</label>
                             <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
-                                @input="fetchEndereco" autocomplete="off">
+                            @input="fetchEndereco" autocomplete="off" :class="{ 'invalid_input': !cidade }">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
                                     {{ option.nome }}
@@ -63,7 +63,7 @@
                     <div class="row mb-2 mt-2 mb-4">
                         <div class="col-lg-12">
                             <label for="form-select" class="form-label">Selecione área:</label>
-                            <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="area">npm
+                            <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="area" :class="{ 'invalid_input': !area }">
                                 <option v-for="area in areaConhecimento" :key="area.id" :value="area.nome">
                                     {{ area.nome }}
                                 </option>
@@ -85,7 +85,7 @@
                         <div class="col-lg-12">
                             <label for="cidade" class="form-label">Cidade:</label>
                             <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
-                                @input="fetchEndereco" autocomplete="off">
+                            :class="{ 'invalid_input': !cidade }" @input="fetchEndereco" autocomplete="off">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
                                     {{ option.nome }}
@@ -104,7 +104,7 @@
                     <div class="row mb-4">
                         <div class="col-lg-12">
                             <label for="form-select" class="form-label">Selecione o ano escolar:</label>
-                            <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="AnoEscolar">
+                            <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="AnoEscolar" :class="{ 'invalid_input': !AnoEscolar }" >
                                 <option v-for="aescolar in anoEscolar" :key="aescolar.id" :value="aescolar.nome">
                                     {{ aescolar.nome }}
                                 </option>
@@ -126,7 +126,7 @@
                     <div class="row mb-2">
                         <div class="col-md-12 col-lg-12">
                             <label for="form-select" class="form-label">Selecione Modalidade:</label>
-                            <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade">
+                            <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade" :class="{ 'invalid_input': !nomeModalidade }" >
                                 <option v-for="modalidade in modalidades" :key="modalidade.id" :value="modalidade.nome">
                                     {{ modalidade.nome }}
                                 </option>
@@ -136,7 +136,7 @@
                     <div class="row mb-4">
                         <div class="col-md-12 col-lg-12">
                             <label for="cidade" class="form-label">Cidade:</label>
-                            <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
+                            <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade" :class="{ 'invalid_input': !cidade }"
                                 @input="fetchEndereco" autocomplete="off">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
@@ -160,7 +160,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <label for="form-select" class="form-label">Selecione Modalidade:</label>
-                            <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade">
+                            <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade" :class="{ 'invalid_input': !nomeModalidade }" >
                                 <option v-for="modalidade in modalidades" :key="modalidade.id" :value="modalidade.nome">
                                     {{ modalidade.nome }}
                                 </option>
@@ -169,7 +169,7 @@
                         <div class="col-md-12 col-lg-6 mb-2">
                             <label for="cidade" class="form-label">Cidade:</label>
                             <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
-                                @input="fetchEndereco" autocomplete="off">
+                                @input="fetchEndereco" autocomplete="off" :class="{ 'invalid_input': !cidade }" :disabled="nomeModalidade == 'EaD (100% ON-LINE)'">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
                                     {{ option.nome }}
@@ -180,7 +180,7 @@
                     <div class="row mb-4">
                         <div class="col-lg-12">
                             <label for="form-select" class="form-label">Selecione o Curso:</label>
-                            <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="curso">
+                            <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="curso" :class="{ 'invalid_input': !curso }" >
                                 <option v-for="curso in cursosTecnicos" :key="curso.id" :value="curso.nome">
                                     {{ curso.nome }}
                                 </option>
@@ -190,7 +190,7 @@
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
                             <button type="submit" class="btn btn-custom"
-                            :disabled="!nomeModalidade || !cidade || !curso"
+                            :disabled="(!nomeModalidade || !curso || (nomeModalidade === 'EaD (100% ON-LINE)' && !curso)) && !cidade"
                             >Buscar</button>
                         </div>
                     </div>
@@ -202,7 +202,7 @@
                     <div class="row mb-2">
                         <div class="col-md-12 col-lg-12">
                             <label for="form-select" class="form-label">Selecione Modalidade:</label>
-                            <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade">
+                            <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade" :class="{ 'invalid_input': !nomeModalidade }" >
                                 <option v-for="modalidade in modalidades" :key="modalidade.id" :value="modalidade.nome">
                                     {{ modalidade.nome }}
                                 </option>
@@ -213,7 +213,7 @@
                         <div class="col-md-12 col-lg-12">
                             <label for="cidade" class="form-label">Cidade:</label>
                             <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
-                                @input="fetchEndereco" autocomplete="off">
+                                @input="fetchEndereco" autocomplete="off" :class="{ 'invalid_input': !cidade }">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
                                     {{ option.nome }}
@@ -236,7 +236,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <label for="form-select" class="form-label">Selecione Modalidade:</label>
-                            <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade">
+                            <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade" :class="{ 'invalid_input': !nomeModalidade }">
                                 <option v-for="modalidade in modalidades" :key="modalidade.id" :value="modalidade.nome">
                                     {{ modalidade.nome }}
                                 </option>
@@ -245,7 +245,7 @@
                         <div class=" col-md-12 col-lg-6 mb-2">
                             <label for="cidade" class="form-label">Cidade:</label>
                             <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
-                                @input="fetchEndereco" autocomplete="off">
+                                @input="fetchEndereco" autocomplete="off" :class="{ 'invalid_input': !cidade }">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
                                     {{ option.nome }}
@@ -256,7 +256,7 @@
                     <div class="row mb-4">
                         <div class="col-lg-12">
                             <label for="form-select" class="form-label">Selecione o Curso:</label>
-                            <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="curso">
+                            <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="curso" :class="{ 'invalid_input': !curso }" >
                                 <option v-for="curso in cursosLivresOpcs" :key="curso.id" :value="curso.nome">
                                     {{ curso.nome }}
                                 </option>
@@ -278,7 +278,7 @@
                     <div class="row mb-2">
                         <div class="col-md-12 col-lg-12">
                             <label for="form-select" class="form-label">Selecione Modalidade:</label>
-                            <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade">
+                            <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade" :class="{ 'invalid_input': !nomeModalidade }" >
                                 <option v-for="modalidade in modalidades" :key="modalidade.id" :value="modalidade.nome">
                                     {{ modalidade.nome }}
                                 </option>
@@ -289,7 +289,7 @@
                         <div class="col-md-12 col-lg-12">
                             <label for="cidade" class="form-label">Cidade:</label>
                             <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
-                                @input="fetchEndereco" autocomplete="off">
+                                @input="fetchEndereco" autocomplete="off" :class="{ 'invalid_input': !cidade }">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
                                     {{ option.nome }}
@@ -312,7 +312,7 @@
                     <div class="row mb-2">
                         <div class="col-md-12 col-lg-12">
                             <label for="form-select" class="form-label">Selecione Modalidade:</label>
-                            <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade">
+                            <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade" :class="{ 'invalid_input': !nomeModalidade }" >
                                 <option v-for="modalidade in modalidades" :key="modalidade.id" :value="modalidade.nome">
                                     {{ modalidade.nome }}
                                 </option>
@@ -323,7 +323,7 @@
                         <div class="col-md-12 col-lg-12">
                             <label for="cidade" class="form-label">Cidade:</label>
                             <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
-                                @input="fetchEndereco" autocomplete="off">
+                                @input="fetchEndereco" autocomplete="off" :class="{ 'invalid_input': !cidade }">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
                                     {{ option.nome }}
@@ -345,7 +345,7 @@
                 <div class="form-group col-lg-3">
                     <div class="col-lg-12">
                         <label for="form-select" class="form-label">Selecione a Modalidade:</label>
-                        <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade">
+                        <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade" :class="{ 'invalid_input': !nomeModalidade }">
                             <option v-for="modalidade in modalidades" :key="modalidade.id" :value="modalidade.nome">
                                 {{ modalidade.nome }}
                             </option>
@@ -354,7 +354,7 @@
                     <div class="row mb-4 mt-2">
                         <div class="col-lg-12">
                             <label for="form-select" class="form-label">Selecione a área:</label>
-                            <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="area">
+                            <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="area" :class="{ 'invalid_input': !nomeArea }">
                                 <option v-for="area in areaConhecimento" :key="area.id" :value="area.nome">
                                     {{ area.nome }}
                                 </option>
@@ -375,7 +375,7 @@
                 <div class="form-group col-lg-3">
                     <div class="col-lg-12">
                         <label for="form-select" class="form-label">Selecione Modalidade:</label>
-                        <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade">
+                        <select id="Select" class="form-select" placeholder="---MODALIDADE---" v-model="nomeModalidade" :class="{ 'invalid_input': !nomeModalidade }">
                             <option v-for="modalidade in modalidades" :key="modalidade.id" :value="modalidade.nome">
                                 {{ modalidade.nome }}
                             </option>
@@ -384,7 +384,7 @@
                     <div class="row mb-4 mt-2">
                         <div class="col-lg-12">
                             <label for="form-select" class="form-label">Selecione a área</label>
-                            <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="area">npm
+                            <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="area" :class="{ 'invalid_input': !area }">
                                 <option v-for="area in areaConhecimento" :key="area.id" :value="area.nome">
                                     {{ area.nome }}
                                 </option>
@@ -939,6 +939,18 @@ form .btn-custom {
     letter-spacing: 0.1rem;
     transition: all 0.3s ease-in-out;
 
+}
+
+.invalid_input {
+    border: 3px solid #f31212;
+    border-radius: 0.5rem;
+}
+
+input:disabled {
+    background: #c4c4c4;
+    color: #c4c4c4;
+    border: none;
+    cursor: not-allowed;
 }
 
 .btn-custom:hover {
