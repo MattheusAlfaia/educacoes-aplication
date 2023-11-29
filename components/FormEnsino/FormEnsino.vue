@@ -942,7 +942,7 @@ form .btn-custom {
 }
 
 .invalid_input {
-    border: 3px solid #f31212;
+    border: 2px solid #f31212;
     border-radius: 0.5rem;
 }
 
