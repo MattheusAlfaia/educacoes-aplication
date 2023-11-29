@@ -17,7 +17,7 @@
                         <div class="col-lg-6">
                             <label for="cidade" class="form-label">Cidade:</label>
                             <input type="text" class="form-control" id="cidade" autocomplete="off" aria-describedby="cidade" v-model="cidade"
-                            :class="{ 'invalid_input': !cidade }" @input="fetchEndereco">
+                            :class="{ 'invalid_input': !cidade }" :disabled="nomeModalidade == 'EaD (100% ON-LINE)'" @input="fetchEndereco">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
                                     {{ option.nome }}
@@ -40,7 +40,7 @@
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
                             <button type="submit" class="btn btn-custom"
-                            :disabled="!nomeModalidade || !cidade || !curso">Buscar</button>
+                            :disabled="(!nomeModalidade || !curso || (nomeModalidade === 'EaD (100% ON-LINE)' && !curso)) && !cidade">Buscar</button>
                         </div>
                     </div>
                 </div>
@@ -213,7 +213,7 @@
                         <div class="col-md-12 col-lg-12">
                             <label for="cidade" class="form-label">Cidade:</label>
                             <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
-                                @input="fetchEndereco" autocomplete="off" :class="{ 'invalid_input': !cidade }">
+                                @input="fetchEndereco" autocomplete="off" :class="{ 'invalid_input': !cidade }" :disabled="nomeModalidade == 'EaD (100% ON-LINE)'">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
                                     {{ option.nome }}
@@ -224,7 +224,7 @@
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
                             <button type="submit" class="btn btn-custom"
-                            :disabled="!nomeModalidade || !cidade"
+                            :disabled="(nomeModalidade === 'EaD (100% ON-LINE)' && cidade) || (!nomeModalidade && !cidade)"
                             >Buscar</button>
                         </div>
                     </div>
