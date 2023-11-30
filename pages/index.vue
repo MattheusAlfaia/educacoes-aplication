@@ -2,7 +2,7 @@
     <!-- <section v-if="carregamento">
         <sloganHome />
     </section> -->
-    <!-- <ChatPopup /> -->
+    <ChatPopup />
     <section class="container">
         <BannerSliders />
         <NivelEnsinoSlider />

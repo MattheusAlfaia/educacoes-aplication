@@ -1,4 +1,4 @@
-import { createPinia, defineStore } from 'pinia';
+import { createPinia, defineStore } from "pinia";
 import api from "@/services/api";
 // import logoApi from "@/services/logoApi";
 
@@ -18,36 +18,41 @@ const cursoStore = defineStore({
   }),
   actions: {
     async getCursos(data) {
-      if (data == null) {
-        if (data = JSON.parse(localStorage.getItem("data"))) {
-          try {
-            const response = await api.post("cursos/cursos-e-instituicoes", data);
-            if (response.data.cursos.length == 0) {
-              this.semResultado = true;
-              const response = await api.post("cursos/cursos-por-campanha");
-              this.resposta = response.data;
-            } else {
-              this.semResultado = false;
-              this.resposta = response.data;
-            }
-            console.log("Vindo da API:");
-            console.log(this.resposta);
-          } catch (error) {
-            console.error("Erro ao obter os cursos:", error);
+      try {
+        if (!data) {
+          // Se não houver dados, tente obter do armazenamento local
+          data = JSON.parse(localStorage.getItem("data"));
+    
+          if (!data) {
+            // Se ainda não houver dados, redirecione para "/"
+            window.location.href = "/";
+            return;
           }
+        }
+    
+        // Faça a chamada à API "cursos/cursos-e-instituicoes"
+        const response = await api.post("cursos/cursos-e-instituicoes", data);
+    
+        if (response.data.cursos.length === 0) {
+          // Se não houver cursos, faça outra chamada à API "cursos/cursos-por-campanha"
+          const campanhaResponse = await api.post("cursos/cursos-por-campanha");
+    
+          this.resposta = campanhaResponse.data;
+          this.semResultado = true;
         } else {
-          window.location.href = "/"
-        }
-      } else {
-        try {
-          const response = await api.post("cursos/cursos-e-instituicoes", data);
+          // Se houver cursos, atualize os dados e sinalize que não há resultado
+          this.semResultado = false;
           this.resposta = response.data;
-        } catch (error) {
-          console.error("Erro ao obter os cursos:", error);
         }
+    
+        // Atualize a propriedade 'pesquisaData' com os dados
+        this.pesquisaData = data;
+      } catch (error) {
+        // Lide com erros na chamada à API
+        console.error("Erro na chamada à API:", error);
       }
-      this.pesquisaData = data;
-    },
+    },    
+
     async setCursos(data) {
       this.response = data;
     },
@@ -86,7 +91,7 @@ const cursoStore = defineStore({
       } catch (error) {
         console.error("Erro ao obter os cursos:", error);
       }
-    }
+    },
   },
 });
 

@@ -245,7 +245,7 @@
                         <div class=" col-md-12 col-lg-6 mb-2">
                             <label for="cidade" class="form-label">Cidade:</label>
                             <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
-                                @input="fetchEndereco" autocomplete="off" :class="{ 'invalid_input': !cidade }">
+                            :disabled="nomeModalidade == 'EaD (100% ON-LINE)'" @input="fetchEndereco" autocomplete="off" :class="{ 'invalid_input': !cidade }">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
                                     {{ option.nome }}
@@ -266,7 +266,7 @@
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
                             <button type="submit" class="btn btn-custom"
-                            :disabled="!nomeModalidade || !cidade || !curso"
+                            :disabled="(!nomeModalidade || !curso || (nomeModalidade === 'EaD (100% ON-LINE)' && !curso) || (nomeModalidade !== 'EaD (100% ON-LINE)' && !cidade))"
                             >Buscar</button>
                         </div>
                     </div>
@@ -289,7 +289,7 @@
                         <div class="col-md-12 col-lg-12">
                             <label for="cidade" class="form-label">Cidade:</label>
                             <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
-                                @input="fetchEndereco" autocomplete="off" :class="{ 'invalid_input': !cidade }">
+                            :disabled="nomeModalidade == 'EaD (100% ON-LINE)'"  @input="fetchEndereco" autocomplete="off" :class="{ 'invalid_input': !cidade }">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
                                     {{ option.nome }}
@@ -300,7 +300,7 @@
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
                             <button type="submit" class="btn btn-custom"
-                            :disabled="!nomeModalidade || !cidade"
+                            :disabled="(!nomeModalidade || (nomeModalidade != 'EaD (100% ON-LINE)')) && !cidade"
                             >Buscar</button>
                         </div>
                     </div>
@@ -323,6 +323,7 @@
                         <div class="col-md-12 col-lg-12">
                             <label for="cidade" class="form-label">Cidade:</label>
                             <input type="text" class="form-control" id="cidade" aria-describedby="cidade" v-model="cidade"
+                                :disabled="nomeModalidade == 'EaD (100% ON-LINE)'"
                                 @input="fetchEndereco" autocomplete="off" :class="{ 'invalid_input': !cidade }">
                             <ul v-if="showLugar" class="cidade-options">
                                 <li v-for="option in optionsLugar" :key="option.id" @click="selectOptionEndereco(option)">
@@ -334,7 +335,7 @@
                     <div class="row">
                         <div class="col-lg-12 d-grid gap-2">
                             <button type="submit" class="btn btn-custom"
-                            :disabled="!nomeModalidade || !cidade"
+                            :disabled="(!nomeModalidade || (nomeModalidade != 'EaD (100% ON-LINE)')) && !cidade"
                             >Buscar</button>
                         </div>
                     </div>
@@ -354,7 +355,7 @@
                     <div class="row mb-4 mt-2">
                         <div class="col-lg-12">
                             <label for="form-select" class="form-label">Selecione a área:</label>
-                            <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="area" :class="{ 'invalid_input': !nomeArea }">
+                            <select id="Select" class="form-select" placeholder="---NÍVEL---" v-model="area" :class="{ 'invalid_input': !area }">
                                 <option v-for="area in areaConhecimento" :key="area.id" :value="area.nome">
                                     {{ area.nome }}
                                 </option>
@@ -573,6 +574,9 @@ export default {
         const AnoEscolar = ref(null);
 
         const graduacaoSubmit = () => {
+            if(nomeModalidade.value === 'EaD (100% ON-LINE)') {
+                cidade.value = '';
+            }
             const data = {
                 nomeNivel: 'GRADUAÇÃO',
                 nomeModalidade: nomeModalidade.value,
@@ -637,6 +641,9 @@ export default {
         };
 
         const cursosTecnico = () => {
+            if(nomeModalidade.value === 'EaD (100% ON-LINE)') {
+                cidade.value = '';
+            }
             const data = {
                 nomeNivel: 'CURSOS TÉCNICOS',
                 nomeModalidade: nomeModalidade.value,
@@ -653,6 +660,9 @@ export default {
         };
 
         const cursosPosTecnico = () => {
+            if(nomeModalidade.value === 'EaD (100% ON-LINE)') {
+                cidade.value = '';
+            }
             const data = {
                 nomeNivel: 'PÓS-TÉCNICOS',
                 nomeModalidade: nomeModalidade.value,
@@ -669,6 +679,9 @@ export default {
         };
 
         const cursosLivres = () => {
+            if(nomeModalidade.value === 'EaD (100% ON-LINE)') {
+                cidade.value = '';
+            }
             const data = {
                 nomeNivel: 'CURSOS LIVRES',
                 nomeModalidade: nomeModalidade.value,
@@ -685,6 +698,9 @@ export default {
         };
 
         const supletivoSubmit = () => {
+            if(nomeModalidade.value === 'EaD (100% ON-LINE)') {
+                cidade.value = '';
+            }
             const data = {
                 nomeNivel: 'SUPLETIVO',
                 nomeModalidade: nomeModalidade.value,
@@ -701,6 +717,9 @@ export default {
         };
 
         const preVestibularSubmit = () => {
+            if(nomeModalidade.value === 'EaD (100% ON-LINE)') {
+                cidade.value = '';
+            }
             const data = {
                 nomeNivel: 'PRÉ-VESTIBULAR',
                 nomeModalidade: nomeModalidade.value,
