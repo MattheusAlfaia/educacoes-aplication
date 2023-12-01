@@ -19,6 +19,7 @@ import 'vue3-carousel/dist/carousel.css'
 import slide1 from '@/assets/images/slides/slide1.webp';
 import slide2 from '@/assets/images/slides/slide2.webp';
 import slide3 from '@/assets/images/slides/slide3.webp';
+import slide4 from '@/assets/images/slides/slide4.webp';
 export default defineComponent({
   name: 'BannerSlides',
   components: {
@@ -32,6 +33,7 @@ export default defineComponent({
         { image: slide1 },
         { image: slide2 },
         { image: slide3 },
+        { image: slide4 },
       ],
     };
   },
