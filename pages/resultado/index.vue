@@ -297,7 +297,7 @@
                                 <div class="row">
                                     <div class="col-md-12 text-center">
                                         <div class="card-promotional">
-                                            <div class="row">
+                                            <div class="row" v-if="result.reserva != 1">
                                                 <div class="col-md-6">
                                                     <p class="price-before">De {{ formatarMoeda(result.valor_integral) }}
                                                     </p>
@@ -310,6 +310,19 @@
                                                         Economia de {{ formatarMoeda(result.economia =
                                                             ((result.valor_integral - result.valor_bolsa) * 12)) }}
                                                         <br>por ano
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                            <div class="row" v-else>
+                                                <div class="col-md-6">
+                                                    <p class="price-before">---</p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p class="price">---</p>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <h5 class="savings">
+                                                        ---
                                                     </h5>
                                                 </div>
                                             </div>

@@ -1,5 +1,5 @@
 <template>
-  <Carousel :autoplay="2555" :wrap-around="true">
+  <Carousel :autoplay="4555" :wrap-around="true">
     <Slide class="slide" v-for="(slide, index) in slides" :key="index">
       <img class="carousel__image" :src="slide.image" :alt="'Slide ' + (index + 1)" />
     </Slide>
