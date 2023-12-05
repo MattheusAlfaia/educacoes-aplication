@@ -1,7 +1,15 @@
 <template>
+  <!-- {{ banners }} -->
   <Carousel :autoplay="4555" :wrap-around="true">
-    <Slide class="slide" v-for="(slide, index) in slides" :key="index">
-      <img class="carousel__image" :src="slide.image" :alt="'Slide ' + (index + 1)" />
+    <Slide class="slide" v-for="(slide, index) in banners" :key="index">
+      <div v-if="slide.link_campanha">
+        <a :href="slide.link_campanha">
+          <img class="carousel__image" :src="slide.link_image" :alt="'Slide ' + (index + 1)" />
+        </a>
+      </div>
+      <div v-else>
+        <img class="carousel__image" :src="slide.link_image" :alt="'Slide ' + (index + 1)" />
+      </div>
     </Slide>
 
     <template #addons>
@@ -9,38 +17,38 @@
     </template>
   </Carousel>
 </template>
-  
+
 <script>
-import { defineComponent } from 'vue'
-import { Carousel, Pagination, Slide } from 'vue3-carousel'
+import { defineComponent } from "vue";
+import { Carousel, Pagination, Slide } from "vue3-carousel";
+import "vue3-carousel/dist/carousel.css";
 
-import 'vue3-carousel/dist/carousel.css'
+import { apiAdmStore, pinia } from "@/stores/getApiAdm";
 
-import slide1 from '@/assets/images/slides/slide1.webp';
-import slide2 from '@/assets/images/slides/slide2.webp';
-import slide3 from '@/assets/images/slides/slide3.webp';
-import slide4 from '@/assets/images/slides/slide4.webp';
 export default defineComponent({
-  name: 'BannerSlides',
+  name: "BannerSlides",
   components: {
     Carousel,
     Slide,
     Pagination,
   },
-  data() {
+  setup() {
+    const myStore = apiAdmStore(pinia);
+    const banners = ref([]);
+
+    onMounted(async () => {
+        await myStore.getBanners();
+        banners.value = myStore.banners;
+        JSON.parse(JSON.stringify(banners.value));
+    });
+
     return {
-      slides: [
-        { image: slide1 },
-        { image: slide2 },
-        { image: slide3 },
-        { image: slide4 },
-      ],
+      banners,
     };
   },
-})
+});
 </script>
-  
+
 <style lang="scss" scoped>
 @import "./BannerSlides.scss";
 </style>
-  

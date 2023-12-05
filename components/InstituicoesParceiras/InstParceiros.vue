@@ -1,15 +1,24 @@
 <template>
     <div class="mt-3 mb-2">
         <h2 class="text-center text-instituicao fw-2">Instituições Parceiras</h2>
-        <!-- {{ Logos }} -->
+        <!-- {{ logos }} -->
     </div>
-    <Carousel class="parceiros" v-bind="settings" :breakpoints="breakpoints" :wrap-around="true" :transition="1800"
+    <Carousel class="parceiros" v-bind="settings" :breakpoints="breakpoints" :wrap-around="true" :transition="1900"
         :autoplay="1">
-        <Slide class="mt-5 mb-3" v-for="(instituicao, index) in parceiros" :key="index">
+        <Slide class="mt-5 mb-3" v-for="(instituicao, index) in logos" :key="index">
             <div class="card-instituicao">
                 <div class="body-instituicao">
-                    <div class="instituicao-image">
-                        <img :src="instituicao.image" :alt="instituicao.name" />
+                    <div v-if="instituicao.link_ies">
+                        <a :href="instituicao.link_ies" target="_blank">
+                            <div class="instituicao-image">
+                                <img :src="instituicao.link_image" alt="logo-ies" />
+                            </div>
+                        </a>
+                    </div>
+                    <div v-else>
+                        <div class="instituicao-image">
+                            <img :src="instituicao.link_image" alt="logo-ies" />
+                        </div>
                     </div>
                     <!-- <div class="instituicao-name">
                         {{ instituicao.name }}
@@ -29,8 +38,9 @@ import { defineComponent } from 'vue'
 import { Carousel, Navigation, Slide } from 'vue3-carousel'
 
 import 'vue3-carousel/dist/carousel.css';
-import { cursoStore, pinia } from '@/stores/getCursos';
 import { ref, onMounted } from 'vue';
+// import { cursoStore, pinia } from '@/stores/getCursos';
+import { apiAdmStore, pinia } from "@/stores/getApiAdm";
 
 export default defineComponent({
     name: 'Breakpoints',
@@ -368,17 +378,17 @@ export default defineComponent({
         },
     }),
     setup() {
-        const myStore = cursoStore(pinia);
-        const Logos = ref([]);
+        const myStore = apiAdmStore(pinia);
+        const logos = ref([]);
 
         onMounted(async () => {
-            await myStore.getAreaConhecimento();
-            Logos.value = myStore.Logos;
-            JSON.parse(JSON.stringify([Logos]));
+            await myStore.getLogos();
+            logos.value = myStore.logos;
+            JSON.parse(JSON.stringify(logos.value));
         });
 
         return {
-            Logos,
+        logos,
         };
     },
 
