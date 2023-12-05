@@ -20,9 +20,6 @@
                             <img :src="instituicao.link_image" alt="logo-ies" />
                         </div>
                     </div>
-                    <!-- <div class="instituicao-name">
-                        {{ instituicao.name }}
-                    </div> -->
                 </div>
             </div>
         </Slide>
